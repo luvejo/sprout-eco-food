@@ -1,13 +1,41 @@
 <template>
-  <i>ico</i>
+  <div v-html="iconSvg" :style="styleObject"></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import feather from 'feather-icons'
 
 export default defineComponent({
-  name: 'BaseIcon'
+  name: 'BaseIcon',
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    size: {
+      type: Number,
+      default: 22
+    }
+  },
+  data () {
+    return {
+      styleObject: {
+        width: `${this.size}px`,
+        height: `${this.size}px`
+      }
+    }
+  },
+  computed: {
+    iconSvg (): string {
+      if (this.name) {
+        return feather.icons[this.name].toSvg({
+          width: this.size,
+          height: this.size
+        })
+      }
+      return ''
+    }
+  }
 })
 </script>
-
-<style lang="scss"></style>

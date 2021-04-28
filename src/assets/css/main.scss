@@ -1,0 +1,58 @@
+@use '@/assets/css/vars' as vars;
+
+/*----------------------------------------------
+  FONTS
+-----------------------------------------------*/
+/* lato-regular - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: vars.$regular;
+  src: url('assets/fonts/lato/lato-v17-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('assets/fonts/lato/lato-v17-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/fonts/lato/lato-v17-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('assets/fonts/lato/lato-v17-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('assets/fonts/lato/lato-v17-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('assets/fonts/lato/lato-v17-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+}
+
+/* gilroy-semibold - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: vars.$semibold;
+  src: url('assets/fonts/gilroy/Gilroy-SemiBold.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('assets/fonts/gilroy/Gilroy-SemiBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/fonts/gilroy/Gilroy-SemiBold.woff') format('woff'), /* Modern Browsers */
+       url('assets/fonts/gilroy/Gilroy-SemiBold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+/* gilroy-bold - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: vars.$bold;
+  src: url('assets/fonts/gilroy/Gilroy-Bold.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('assets/fonts/gilroy/Gilroy-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/fonts/gilroy/Gilroy-Bold.woff') format('woff'), /* Modern Browsers */
+       url('assets/fonts/gilroy/Gilroy-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+/* gilroy-extrabold - latin */
+/* prettier-ignore */
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: vars.$extrabold;
+  src: url('assets/fonts/gilroy/Gilroy-ExtraBold.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('assets/fonts/gilroy/Gilroy-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/fonts/gilroy/Gilroy-ExtraBold.woff') format('woff'), /* Modern Browsers */
+       url('assets/fonts/gilroy/Gilroy-ExtraBold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
