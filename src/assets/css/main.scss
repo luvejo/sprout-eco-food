@@ -56,3 +56,56 @@
        url('assets/fonts/gilroy/Gilroy-ExtraBold.woff') format('woff'), /* Modern Browsers */
        url('assets/fonts/gilroy/Gilroy-ExtraBold.ttf') format('truetype'), /* Safari, Android, iOS */
 }
+
+/*----------------------------------------------
+  GENERAL
+-----------------------------------------------*/
+html {
+  font-size: 62.5%;
+
+  * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: Lato, Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: vars.$black;
+  }
+}
+
+body {
+  background-color: vars.$light-cream;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  border: none;
+}
+
+.content-max-width {
+  margin: 0 auto;
+  max-width: 1380px;
+  padding: 0px 20px;
+}
+
+/*------------------------------------------------
+  FORMS
+------------------------------------------------*/
+.btn {
+  border: none;
+  border-radius: vars.$border-radius;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+
+  &--white {
+    background-color: vars.$white;
+  }
+}
