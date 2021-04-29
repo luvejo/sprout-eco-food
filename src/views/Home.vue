@@ -7,12 +7,12 @@
     <section class="section">
       <div class="section__title">
         <h2>
-          <base-icon />
+          <base-icon name="tag" :size="40" />
           Discounted goods
         </h2>
         <router-link to="/catalog/discounted">
           View all
-          <base-icon />
+          <base-icon name="chevron-right" />
         </router-link>
       </div>
 
@@ -23,7 +23,7 @@
     <section class="section">
       <div class="section__title">
         <h2>
-          <base-icon />
+          <base-icon name="coffee" :size="40" />
           What to cook?
         </h2>
       </div>
@@ -53,7 +53,7 @@
     <section class="section">
       <div class="section__title">
         <h2>
-          <base-icon />
+          <base-icon name="award" :size="40" />
           Bonus program
         </h2>
       </div>
@@ -78,12 +78,12 @@
     <section class="section">
       <div class="section__title">
         <h2>
-          <base-icon />
+          <base-icon name="package" :size="40" />
           New additions
         </h2>
         <router-link to="/new-additions">
           View all
-          <base-icon />
+          <base-icon name="chevron-right" />
         </router-link>
       </div>
 
@@ -94,7 +94,7 @@
     <section class="section section-logistics">
       <div class="section__title">
         <h2>
-          <base-icon />
+          <base-icon name="truck" :size="40" />
           How we work
         </h2>
       </div>

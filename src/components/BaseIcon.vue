@@ -4,6 +4,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { IconStyleObject } from '@/types'
+
 import feather from 'feather-icons'
 
 export default defineComponent({
@@ -11,7 +13,10 @@ export default defineComponent({
   props: {
     name: {
       type: String,
-      required: true
+      required: true,
+      validator: (value: string) => {
+        return !!feather.icons[value]
+      }
     },
     size: {
       type: Number,
@@ -23,18 +28,15 @@ export default defineComponent({
       styleObject: {
         width: `${this.size}px`,
         height: `${this.size}px`
-      }
+      } as IconStyleObject
     }
   },
   computed: {
     iconSvg (): string {
-      if (this.name) {
-        return feather.icons[this.name].toSvg({
-          width: this.size,
-          height: this.size
-        })
-      }
-      return ''
+      return feather.icons[this.name].toSvg({
+        width: this.size,
+        height: this.size
+      })
     }
   }
 })
