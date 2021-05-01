@@ -19,21 +19,21 @@ export default defineComponent({
   props: {
     id: {
       type: String,
-      required: true
+      required: true,
     },
     title: {
       type: String,
-      required: true
+      required: true,
     },
     subtitle: {
       type: String,
-      required: true
+      required: true,
     },
     imageURL: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 

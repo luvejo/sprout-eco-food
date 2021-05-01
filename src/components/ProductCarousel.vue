@@ -16,9 +16,9 @@ export default defineComponent({
   props: {
     products: {
       type: Array,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 

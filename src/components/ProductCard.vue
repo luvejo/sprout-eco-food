@@ -14,25 +14,25 @@ export default defineComponent({
   props: {
     imageURL: {
       type: String,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     price: {
       type: String,
-      required: true
+      required: true,
     },
     unit: {
       type: String,
-      required: true
+      required: true,
     },
     rate: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 })
 </script>
 

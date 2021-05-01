@@ -26,16 +26,16 @@ export default defineComponent({
   props: {
     placeholder: {
       type: String,
-      default: ''
+      default: '',
     },
     icon: {
       type: Object as PropType<InputIcon>,
       required: false,
       validator: (value: InputIcon) => {
         return !!value.name
-      }
-    }
-  }
+      },
+    },
+  },
 })
 </script>
 

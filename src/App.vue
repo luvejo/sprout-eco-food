@@ -11,7 +11,7 @@ import TheFooter from '@/components/TheFooter.vue'
 
 export default defineComponent({
   name: 'App',
-  components: { TheNavbar, TheFooter }
+  components: { TheNavbar, TheFooter },
 })
 </script>
 

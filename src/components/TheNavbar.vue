@@ -98,19 +98,19 @@ export default defineComponent({
   name: 'TheNavbar',
   data () {
     return {
-      mobileOpen: false
+      mobileOpen: false,
     }
   },
   computed: {
     cartCounter () {
       return 3
-    }
+    },
   },
   methods: {
     toggleMobile () {
       this.mobileOpen = !this.mobileOpen
-    }
-  }
+    },
+  },
 })
 </script>
 

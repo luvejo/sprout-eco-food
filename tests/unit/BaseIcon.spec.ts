@@ -5,8 +5,8 @@ describe('BaseIcon', () => {
   it('renders svg when valid props.name passed', () => {
     const wrapper = shallowMount(BaseIcon, {
       props: {
-        name: 'search'
-      }
+        name: 'search',
+      },
     })
     expect(wrapper.find('svg').exists()).toBe(true)
   })

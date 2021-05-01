@@ -7,13 +7,13 @@ describe('BaseInputText', () => {
 
   beforeEach(() => {
     const BaseIcon = {
-      template: '<div v-bar>Foo</div>'
+      template: '<div v-bar>Foo</div>',
     }
 
     wrapper = shallowMount(BaseInputText, {
       global: {
-        components: { BaseIcon }
-      }
+        components: { BaseIcon },
+      },
     })
   })
 
@@ -23,7 +23,7 @@ describe('BaseInputText', () => {
 
     const expectedElements = [
       '.input-text-wrapper__icon',
-      '.input-text-wrapper--with-icon'
+      '.input-text-wrapper--with-icon',
     ]
 
     expectedElements.forEach(cls => {

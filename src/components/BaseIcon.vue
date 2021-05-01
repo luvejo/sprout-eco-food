@@ -16,28 +16,28 @@ export default defineComponent({
       required: true,
       validator: (value: string) => {
         return !!feather.icons[value]
-      }
+      },
     },
     size: {
       type: Number,
-      default: 22
-    }
+      default: 22,
+    },
   },
   data () {
     return {
       styleObject: {
         width: `${this.size}px`,
-        height: `${this.size}px`
-      } as IconStyleObject
+        height: `${this.size}px`,
+      } as IconStyleObject,
     }
   },
   computed: {
     iconSvg (): string {
       return feather.icons[this.name].toSvg({
         width: this.size,
-        height: this.size
+        height: this.size,
       })
-    }
-  }
+    },
+  },
 })
 </script>
