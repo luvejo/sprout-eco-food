@@ -1,59 +1,59 @@
 <template>
   <div class="content-max-width">
     <!-- Navbar Desktop -->
-    <nav class="navbar-desktop">
-      <div class="navbar-desktop__left">
+    <nav class="desktop">
+      <div class="desktop__left">
         <router-link :to="{ name: 'Home' }">
-          <div class="navbar-desktop__logo">SPROUT</div>
+          <div class="desktop__logo">SPROUT</div>
         </router-link>
         <base-input-text :icon="{ name: 'search' }" placeholder="Search" />
       </div>
 
-      <div class="navbar-desktop__right">
-        <router-link class="btn navbar-desktop__btn" to="/about">
-          <base-icon class="navbar-desktop__btn-icon" name="info" />
+      <div class="desktop__right">
+        <router-link class="btn desktop__btn" to="/about">
+          <base-icon class="desktop__btn-icon" name="info" />
           About
         </router-link>
-        <router-link class="btn navbar-desktop__btn" to="/store">
-          <base-icon class="navbar-desktop__btn-icon" name="map" />
+        <router-link class="btn desktop__btn" to="/store">
+          <base-icon class="desktop__btn-icon" name="map" />
           Store
         </router-link>
-        <button class="btn navbar-desktop__btn btn--white">
-          <base-icon class="navbar-desktop__btn-icon" name="shopping-bag" />
+        <button class="btn desktop__btn btn--white">
+          <base-icon class="desktop__btn-icon" name="shopping-bag" />
           Cart: {{ cartCounter }}
         </button>
       </div>
     </nav>
 
     <!--
-      This occupies the space of .navbar-mobile when its "display"
+      This occupies the space of .mobile when its "display"
       property is set to "fixed". It prevents the rest of the
       elements from moving upwards.
     -->
-    <div v-if="mobileOpen" class="navbar-substitute"></div>
+    <div v-if="mobileOpen" class="substitute"></div>
 
     <!-- Navbar Mobile -->
     <div
-      class="navbar-mobile"
-      :class="{ 'navbar-mobile--fixed': mobileOpen }"
+      class="mobile"
+      :class="{ 'mobile--fixed': mobileOpen }"
       @click.self="toggleMobile"
     >
-      <div class="navbar-mobile__bar">
-        <div class="navbar-mobile__content">
-          <div class="navbar-mobile__left">
+      <div class="mobile__bar">
+        <div class="mobile__content">
+          <div class="mobile__left">
             <router-link :to="{ name: 'Home' }">
-              <div class="navbar-mobile__logo">SPROUT</div>
+              <div class="mobile__logo">SPROUT</div>
             </router-link>
           </div>
-          <div class="navbar-mobile__right">
-            <button class="btn navbar-mobile__btn">
-              <base-icon class="navbar-mobile__btn-icon" name="shopping-bag" />
-              <div v-if="cartCounter" class="navbar-mobile__btn-counter">
+          <div class="mobile__right">
+            <button class="btn mobile__btn">
+              <base-icon class="mobile__btn-icon" name="shopping-bag" />
+              <div v-if="cartCounter" class="mobile__btn-counter">
                 {{ cartCounter }}
               </div>
             </button>
             <button
-              class="btn navbar-mobile__burger"
+              class="btn mobile__burger"
               id="burger"
               @click="toggleMobile"
               :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
@@ -65,24 +65,24 @@
         </div>
       </div>
 
-      <div class="navbar-mobile__menu">
+      <div class="mobile__menu">
         <base-input-text :icon="{ name: 'search' }" placeholder="Search" />
 
-        <div class="navbar-mobile__menu-btn-container">
+        <div class="mobile__menu-btn-container">
           <router-link
-            class="btn navbar-mobile__menu-btn"
+            class="btn mobile__menu-btn"
             to="/about"
             @click="toggleMobile"
           >
-            <base-icon class="navbar-mobile__menu-btn-icon" name="info" />
+            <base-icon class="mobile__menu-btn-icon" name="info" />
             About
           </router-link>
           <router-link
-            class="btn navbar-mobile__menu-btn"
+            class="btn mobile__menu-btn"
             to="/store"
             @click="toggleMobile"
           >
-            <base-icon class="navbar-mobile__menu-btn-icon" name="map" />
+            <base-icon class="mobile__menu-btn-icon" name="map" />
             Store
           </router-link>
         </div>
@@ -117,17 +117,17 @@ export default defineComponent({
 <style lang="scss" scoped>
 @use '@/assets/css/vars' as vars;
 
-.navbar-desktop {
+.desktop {
   display: none;
 }
 
-.navbar-substitute {
+.substitute {
   $padding-y: 12px;
   height: 22px + ($padding-y * 2);
   margin: 20px 0;
 }
 
-.navbar-mobile {
+.mobile {
   &__bar {
     width: 100%;
     background-color: vars.$light-cream;
@@ -228,11 +228,11 @@ export default defineComponent({
   MEDIA QUERIES
 -----------------------------------------------*/
 @media screen and (min-width: 780px) {
-  .navbar-mobile {
+  .mobile {
     display: none;
   }
 
-  .navbar-desktop {
+  .desktop {
     display: flex;
     padding: 20px 32px;
     justify-content: space-between;

@@ -1,16 +1,16 @@
 <template>
-  <div class="input-text-wrapper">
+  <div class="input-wrapper">
     <input
-      class="input-text-wrapper__input"
-      :class="{ 'input-text-wrapper--with-icon': this.icon }"
+      class="input-wrapper__input"
+      :class="{ 'input-wrapper--with-icon': this.icon }"
       type="text"
       :placeholder="placeholder"
     />
 
     <div
       v-if="icon"
-      class="input-text-wrapper__icon"
-      :class="{ 'input-text-wrapper__icon--background': this.icon?.background }"
+      class="input-wrapper__icon"
+      :class="{ 'input-wrapper__icon--background': this.icon?.background }"
     >
       <base-icon :name="icon.name" :size="16" />
     </div>
@@ -42,7 +42,7 @@ export default defineComponent({
 <style lang="scss">
 @use '@/assets/css/vars' as vars;
 
-.input-text-wrapper {
+.input-wrapper {
   width: 200px;
   height: 40px;
   display: flex;
