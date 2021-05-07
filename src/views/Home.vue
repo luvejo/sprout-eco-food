@@ -26,7 +26,7 @@
         </router-link>
       </div>
 
-      <product-carousel />
+        <product-carousel :products="discountedGoods" />
     </section>
 
     <!-- Section: Recipes -->
@@ -190,6 +190,7 @@ import ProductCarousel from '@/components/ProductCarousel.vue'
 import RecipeCategoryCard from '@/components/RecipeCategoryCard.vue'
 import BonusLevelCard from '@/components/BonusLevelCard.vue'
 import TheNewsCarousel from '@/components/TheNewsCarousel.vue'
+import data from '@/data'
 
 export default defineComponent({
   name: 'Home',
@@ -198,6 +199,11 @@ export default defineComponent({
     RecipeCategoryCard,
     BonusLevelCard,
     TheNewsCarousel,
+  },
+  data () {
+    return {
+      discountedGoods: data.discountedGoods,
+    }
   },
 })
 </script>

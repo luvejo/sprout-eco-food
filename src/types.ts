@@ -7,3 +7,8 @@ export interface IconStyleObject {
   width: string
   height: string
 }
+
+export interface ProductPrice {
+  name: string
+  price: number
+}

@@ -1,33 +1,33 @@
 <template>
-    <div class="carousel">
-      <news-standard-card
-        ref="0"
-        class="card card--highlighted"
-        :class="{ 'card--visible': visibleCard === 0 }"
-        v-bind="standardCard"
-      />
+  <div class="carousel">
+    <news-standard-card
+      ref="0"
+      class="card card--highlighted"
+      :class="{ 'card--visible': visibleCard === 0 }"
+      v-bind="standardCard"
+    />
 
-      <news-coupon-card
-        ref="1"
-        class="card"
-        :class="{ 'card--visible': visibleCard === 1 }"
-        v-bind="couponCard"
-      />
-      <div class="carousel__left-btn" @click="prev"></div>
-      <div class="carousel__right-btn" @click="prev"></div>
-    </div>
-    <div class="carousel-nav">
-      <button
-        class="carousel-nav__btn"
-        :class="{ 'carousel-nav__btn--active': visibleCard === 0 }"
-        @click="goTo(0)"
-      ></button>
-      <button
-        class="carousel-nav__btn"
-        :class="{ 'carousel-nav__btn--active': visibleCard === 1 }"
-        @click="goTo(1)"
-      ></button>
-    </div>
+    <news-coupon-card
+      ref="1"
+      class="card"
+      :class="{ 'card--visible': visibleCard === 1 }"
+      v-bind="couponCard"
+    />
+    <div class="carousel__left-btn" @click="prev"></div>
+    <div class="carousel__right-btn" @click="prev"></div>
+  </div>
+  <div class="carousel-nav">
+    <button
+      class="carousel-nav__btn"
+      :class="{ 'carousel-nav__btn--active': visibleCard === 0 }"
+      @click="goTo(0)"
+    ></button>
+    <button
+      class="carousel-nav__btn"
+      :class="{ 'carousel-nav__btn--active': visibleCard === 1 }"
+      @click="goTo(1)"
+    ></button>
+  </div>
 </template>
 
 <script lang="ts">
@@ -109,7 +109,7 @@ export default defineComponent({
 }
 
 .card {
-  border-radius: vars.$border-radius;
+  border-radius: vars.$border-radius-big;
   min-height: 240px;
   display: none;
   user-select: none;
