@@ -6,14 +6,23 @@
 
     <!-- Section: Discounts -->
     <section class="section">
-      <div class="section__title">
-        <h2>
-          <base-icon name="tag" :size="40" />
+        <div class="section__title-container">
+          <h2 class="section__title">
+            <base-icon
+              class="section__title-icon section__title-icon--desktop"
+              name="tag"
+              :size="40"
+            />
+            <base-icon
+              class="section__title-icon section__title-icon--mobile"
+              name="tag"
+              :size="28"
+            />
           Discounted goods
         </h2>
-        <router-link to="/catalog/discounted">
+          <router-link to="/catalog/discounted" class="section__link">
           View all
-          <base-icon name="chevron-right" />
+            <base-icon name="chevron-right" class="section__link-icon" />
         </router-link>
       </div>
 
@@ -22,9 +31,18 @@
 
     <!-- Section: Recipes -->
     <section class="section">
-      <div class="section__title">
-        <h2>
-          <base-icon name="coffee" :size="40" />
+        <div class="section__title-container">
+          <h2 class="section__title">
+            <base-icon
+              class="section__title-icon section__title-icon--desktop"
+              name="coffee"
+              :size="40"
+            />
+            <base-icon
+              class="section__title-icon section__title-icon--mobile"
+              name="coffee"
+              :size="28"
+            />
           What to cook?
         </h2>
       </div>
@@ -52,9 +70,18 @@
 
     <!-- Section: Bonus Program -->
     <section class="section">
-      <div class="section__title">
-        <h2>
-          <base-icon name="award" :size="40" />
+        <div class="section__title-container">
+          <h2 class="section__title">
+            <base-icon
+              class="section__title-icon section__title-icon--desktop"
+              name="award"
+              :size="40"
+            />
+            <base-icon
+              class="section__title-icon section__title-icon--mobile"
+              name="award"
+              :size="28"
+            />
           Bonus program
         </h2>
       </div>
@@ -77,12 +104,21 @@
 
     <!-- Section:  New Additions -->
     <section class="section">
-      <div class="section__title">
-        <h2>
-          <base-icon name="package" :size="40" />
+        <div class="section__title-container">
+          <h2 class="section__title">
+            <base-icon
+              class="section__title-icon section__title-icon--desktop"
+              name="package"
+              :size="40"
+            />
+            <base-icon
+              class="section__title-icon section__title-icon--mobile"
+              name="package"
+              :size="28"
+            />
           New additions
         </h2>
-        <router-link to="/new-additions">
+          <router-link to="/new-additions" class="section__link">
           View all
           <base-icon name="chevron-right" />
         </router-link>
@@ -93,9 +129,18 @@
 
     <!-- Section:  Logistics -->
     <section class="section section-logistics">
-      <div class="section__title">
-        <h2>
-          <base-icon name="truck" :size="40" />
+        <div class="section__title-container">
+          <h2 class="section__title">
+            <base-icon
+              class="section__title-icon section__title-icon--desktop"
+              name="truck"
+              :size="40"
+            />
+            <base-icon
+              class="section__title-icon section__title-icon--mobile"
+              name="truck"
+              :size="28"
+            />
           How we work
         </h2>
       </div>
@@ -156,3 +201,70 @@ export default defineComponent({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+@use '@/assets/css/vars' as vars;
+
+.section {
+  margin-top: 32px;
+
+  &__title-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    display: flex;
+    font-size: 2.4rem;
+    align-items: center;
+    font-weight: vars.$bold;
+    font-family: Gilroy;
+  }
+
+  &__title-icon {
+    margin-right: 12px;
+
+    &--mobile {
+      display: block;
+    }
+
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/*------------------------------------------------
+  MEDIA QUERIES
+------------------------------------------------*/
+@media screen and (min-width: 640px) {
+  .section {
+    margin-top: 72px;
+
+    &__title-container {
+      padding: 0 40px;
+    }
+
+    &__title {
+      font-size: 3.4rem;
+    }
+
+    &__title-icon {
+      margin-right: 20px;
+
+      &--mobile {
+        display: none;
+      }
+
+      &--desktop {
+        display: block;
+      }
+    }
+  }
+}
+</style>
