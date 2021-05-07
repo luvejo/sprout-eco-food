@@ -1,4 +1,5 @@
 <template>
+  <div class="content-max-width">
   <div class="home">
     <!-- News Carousel -->
     <the-news-carousel />
@@ -135,6 +136,7 @@
       </div>
     </section>
   </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -150,7 +152,7 @@ export default defineComponent({
     ProductCarousel,
     RecipeCategoryCard,
     BonusLevelCard,
-    TheNewsCarousel
-  }
+    TheNewsCarousel,
+  },
 })
 </script>

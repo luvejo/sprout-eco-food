@@ -1,5 +1,4 @@
 <template>
-  <div class="content-max-width">
     <div class="carousel">
       <news-standard-card
         ref="0"
@@ -29,7 +28,6 @@
         @click="goTo(1)"
       ></button>
     </div>
-  </div>
 </template>
 
 <script lang="ts">
@@ -148,13 +146,12 @@ export default defineComponent({
   }
 }
 
-/*----------------------------------------------
+/*------------------------------------------------
   MEDIA QUERIES
------------------------------------------------*/
+------------------------------------------------*/
 @media screen and (min-width: 640px) {
   .card {
     width: 33%;
-
     display: flex;
 
     &:not(:last-of-type) {
@@ -167,9 +164,6 @@ export default defineComponent({
   }
 }
 
-/*----------------------------------------------
-  MEDIA QUERIES
------------------------------------------------*/
 @media screen and (min-width: 780px) {
   .card {
     min-height: 240px;
