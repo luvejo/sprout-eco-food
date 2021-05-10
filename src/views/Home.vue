@@ -30,43 +30,7 @@
     </section>
 
     <!-- Section: Recipes -->
-    <section class="section">
-        <div class="section__title-container">
-          <h2 class="section__title">
-            <base-icon
-              class="section__title-icon section__title-icon--desktop"
-              name="coffee"
-              :size="40"
-            />
-            <base-icon
-              class="section__title-icon section__title-icon--mobile"
-              name="coffee"
-              :size="28"
-            />
-          What to cook?
-        </h2>
-      </div>
-
-      <div class="section__content">
-        <recipe-category-card />
-
-        <article class="all-recipes-card">
-          <p class="all-recipes-card__title">
-            <span>200+</span>
-            recipes
-          </p>
-          <router-link class="btn" to="/recipes">View all</router-link>
-        </article>
-
-        <div class="subscribe-card">
-          <p class="subscribe-card__title"></p>
-          <base-input-text />
-          <button class="btn btn--full btn--black">
-            Subscribe now
-          </button>
-        </div>
-      </div>
-    </section>
+      <the-section-recipes />
 
     <!-- Section: Bonus Program -->
     <section class="section">
@@ -187,18 +151,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import ProductCarousel from '@/components/ProductCarousel.vue'
-import RecipeCategoryCard from '@/components/RecipeCategoryCard.vue'
 import BonusLevelCard from '@/components/BonusLevelCard.vue'
 import TheNewsCarousel from '@/components/TheNewsCarousel.vue'
+import TheSectionRecipes from '@/components/TheSectionRecipes.vue'
 import data from '@/data'
 
 export default defineComponent({
   name: 'Home',
   components: {
     ProductCarousel,
-    RecipeCategoryCard,
     BonusLevelCard,
     TheNewsCarousel,
+    TheSectionRecipes,
   },
   data () {
     return {
@@ -208,11 +172,11 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use '@/assets/css/vars' as vars;
 
 .section {
-  margin-top: 32px;
+  margin-top: 52px;
 
   &__title-container {
     display: flex;
@@ -242,6 +206,10 @@ export default defineComponent({
   &__link {
     display: flex;
     align-items: center;
+  }
+
+  &__content {
+    margin-top: 40px;
   }
 }
 

@@ -63,12 +63,12 @@
 html {
   font-size: 62.5%;
   color: vars.$black;
+  font-family: Lato, Arial, Helvetica, sans-serif;
 
   * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: Lato, Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
     color: inherit;
   }
