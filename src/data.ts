@@ -66,4 +66,42 @@ export default {
       imageURL: `${process.env.BASE_URL}img/asparagus.png`,
     },
   ],
+
+  newAdditions: [
+    {
+      imageURL: `${process.env.BASE_URL}img/assorted.png`,
+      name: 'Assorted: black, red, spotty and string beans',
+      rate: 4.4,
+      price: [{ name: 'regular', price: 6 }],
+      unit: '500g',
+    },
+    {
+      imageURL: `${process.env.BASE_URL}img/black-beans.png`,
+      name: 'Black beans',
+      rate: 4.4,
+      price: [{ name: 'regular', price: 6 }],
+      unit: '500g',
+    },
+    {
+      imageURL: `${process.env.BASE_URL}img/red-beans.png`,
+      name: 'Red beans',
+      rate: 4.4,
+      price: [{ name: 'regular', price: 6 }],
+      unit: '500g',
+    },
+    {
+      imageURL: `${process.env.BASE_URL}img/pistachios.png`,
+      name: 'Roasted peeled pistachios',
+      rate: 4.4,
+      price: [{ name: 'regular', price: 6 }],
+      unit: '500g',
+    },
+    {
+      imageURL: `${process.env.BASE_URL}img/blueberries.png`,
+      name: 'Blueberries',
+      rate: 4.4,
+      price: [{ name: 'regular', price: 6 }],
+      unit: '500g',
+    },
+  ],
 }

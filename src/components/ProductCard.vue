@@ -177,6 +177,7 @@ export default defineComponent({
 
 .card-prices {
   justify-self: end;
+  align-self: end;
   text-align: right;
   font-weight: bold;
 

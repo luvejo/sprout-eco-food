@@ -88,7 +88,7 @@
         </router-link>
       </div>
 
-      <product-carousel />
+        <product-carousel :products="newAdditions" />
     </section>
 
     <!-- Section:  Logistics -->
@@ -167,6 +167,7 @@ export default defineComponent({
   data () {
     return {
       discountedGoods: data.discountedGoods,
+      newAdditions: data.newAdditions,
     }
   },
 })
