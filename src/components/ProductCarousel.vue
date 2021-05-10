@@ -7,10 +7,10 @@
         v-bind="product"
       />
     </div>
-    <button class="btn btn-nav btn-nav--left" @click="shiftLeft">
+    <button class="btn btn-nav btn-nav--left" @click="shiftRight">
       <base-icon name="chevron-left" />
     </button>
-    <button class="btn btn-nav btn-nav--right" @click="shiftRight">
+    <button class="btn btn-nav btn-nav--right" @click="shiftLeft">
       <base-icon name="chevron-right" />
     </button>
   </div>
