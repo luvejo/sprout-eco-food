@@ -189,7 +189,7 @@ export default defineComponent({
   }
 }
 
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 940px) {
   .card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

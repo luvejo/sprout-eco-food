@@ -173,7 +173,7 @@ export default defineComponent({
     margin-top: 72px;
 
     &__title-container {
-      padding: 0 40px;
+      padding: 0 56px;
     }
 
     &__title {

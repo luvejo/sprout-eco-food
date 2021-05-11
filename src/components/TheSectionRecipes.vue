@@ -153,6 +153,8 @@ export default defineComponent({
 @media screen and (min-width: 640px) {
   .section-recipes {
     &__content {
+      padding-left: 56px;
+      padding-right: 56px;
       grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
         'card1        card2 '
@@ -161,6 +163,10 @@ export default defineComponent({
 
     &__card {
       margin: 0 16px 0 0;
+
+      &:nth-child(2n) {
+        margin: 0;
+      }
     }
   }
 
@@ -173,7 +179,7 @@ export default defineComponent({
   .subscribe-card {
     padding: 32px;
     grid-area: subscribe;
-    margin: 16px 16px 0 0;
+    margin: 16px 0 0 0;
 
     &__title {
       font-size: 2rem;
@@ -186,7 +192,7 @@ export default defineComponent({
   }
 }
 
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 940px) {
   .section-recipes {
     &__content {
       grid-template-columns: repeat(3, 1fr);
@@ -199,6 +205,10 @@ export default defineComponent({
     &__card {
       margin: 0 16px 0 0;
       grid-row: span 2;
+
+      &:nth-child(2n) {
+        margin: 0 16px 0 0;
+      }
     }
   }
 
