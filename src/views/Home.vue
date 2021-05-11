@@ -95,6 +95,8 @@
       <the-section-logistics />
   </div>
   </div>
+
+  <the-footer />
 </template>
 
 <script lang="ts">
@@ -104,6 +106,7 @@ import BonusLevelCard from '@/components/BonusLevelCard.vue'
 import TheNewsCarousel from '@/components/TheNewsCarousel.vue'
 import TheSectionRecipes from '@/components/TheSectionRecipes.vue'
 import TheSectionLogistics from '@/components/TheSectionLogistics.vue'
+import TheFooter from '@/components/TheFooter.vue'
 import data from '@/data'
 
 export default defineComponent({
@@ -114,6 +117,7 @@ export default defineComponent({
     TheNewsCarousel,
     TheSectionRecipes,
     TheSectionLogistics,
+    TheFooter,
   },
   data () {
     return {
