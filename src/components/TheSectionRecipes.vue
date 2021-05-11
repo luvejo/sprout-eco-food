@@ -102,14 +102,13 @@ export default defineComponent({
   margin-bottom: 16px;
 
   &__title {
-    font-size: 2rem;
     margin-bottom: 28px;
   }
 
   &__counter {
     font-family: Gilroy;
     display: block;
-    font-size: 2.8rem;
+    font-size: 2rem;
     margin-bottom: 12px;
     font-weight: vars.$bold;
   }
@@ -174,6 +173,14 @@ export default defineComponent({
     grid-area: recipes;
     padding: 32px;
     margin: 16px 16px 0 0;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__counter {
+      font-size: 2.4rem;
+    }
   }
 
   .subscribe-card {
