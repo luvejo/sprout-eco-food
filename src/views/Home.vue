@@ -92,58 +92,7 @@
     </section>
 
     <!-- Section:  Logistics -->
-    <section class="section section-logistics">
-        <div class="section__title-container">
-          <h2 class="section__title">
-            <base-icon
-              class="section__title-icon section__title-icon--desktop"
-              name="truck"
-              :size="40"
-            />
-            <base-icon
-              class="section__title-icon section__title-icon--mobile"
-              name="truck"
-              :size="28"
-            />
-          How we work
-        </h2>
-      </div>
-
-      <div class="section-logistics__content">
-        <div class="section-logistics__step">
-          <div class="section-logistics__pictogram-wrapper"></div>
-
-          <div class="section-logistics__text">
-            <p class="section-logistics__title"></p>
-            <p class="section-logistics__description"></p>
-          </div>
-        </div>
-        <div class="section-logistics__step">
-          <div class="section-logistics__pictogram-wrapper"></div>
-
-          <div class="section-logistics__text">
-            <p class="section-logistics__title"></p>
-            <p class="section-logistics__description"></p>
-          </div>
-        </div>
-        <div class="section-logistics__step">
-          <div class="section-logistics__pictogram-wrapper"></div>
-
-          <div class="section-logistics__text">
-            <p class="section-logistics__title"></p>
-            <p class="section-logistics__description"></p>
-          </div>
-        </div>
-        <div class="section-logistics__step">
-          <div class="section-logistics__pictogram-wrapper"></div>
-
-          <div class="section-logistics__text">
-            <p class="section-logistics__title"></p>
-            <p class="section-logistics__description"></p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <the-section-logistics />
   </div>
   </div>
 </template>
@@ -154,6 +103,7 @@ import ProductCarousel from '@/components/ProductCarousel.vue'
 import BonusLevelCard from '@/components/BonusLevelCard.vue'
 import TheNewsCarousel from '@/components/TheNewsCarousel.vue'
 import TheSectionRecipes from '@/components/TheSectionRecipes.vue'
+import TheSectionLogistics from '@/components/TheSectionLogistics.vue'
 import data from '@/data'
 
 export default defineComponent({
@@ -163,6 +113,7 @@ export default defineComponent({
     BonusLevelCard,
     TheNewsCarousel,
     TheSectionRecipes,
+    TheSectionLogistics,
   },
   data () {
     return {
