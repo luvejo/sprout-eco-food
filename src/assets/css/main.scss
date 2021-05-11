@@ -44,17 +44,17 @@
        url('assets/fonts/gilroy/Gilroy-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
-/* gilroy-extrabold - latin */
+/* gilroy-heavy - latin */
 /* prettier-ignore */
 @font-face {
   font-family: 'Gilroy';
   font-style: normal;
-  font-weight: vars.$extrabold;
-  src: url('assets/fonts/gilroy/Gilroy-ExtraBold.eot'); /* IE9 Compat Modes */
+  font-weight: vars.$heavy;
+  src: url('assets/fonts/gilroy/Gilroy-Heavy.eot'); /* IE9 Compat Modes */
   src: local(''),
-       url('assets/fonts/gilroy/Gilroy-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('assets/fonts/gilroy/Gilroy-ExtraBold.woff') format('woff'), /* Modern Browsers */
-       url('assets/fonts/gilroy/Gilroy-ExtraBold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('assets/fonts/gilroy/Gilroy-Heavy.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('assets/fonts/gilroy/Gilroy-Heavy.woff') format('woff'), /* Modern Browsers */
+       url('assets/fonts/gilroy/Gilroy-Heavy.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
 /*----------------------------------------------
@@ -109,5 +109,10 @@ textarea {
 
   &--white {
     background-color: vars.$white;
+  }
+
+  &--red {
+    background-color: vars.$red;
+    color: vars.$white;
   }
 }
