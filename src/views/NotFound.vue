@@ -91,6 +91,11 @@ export default defineComponent({
     font-size: 18rem;
     font-weight: vars.$heavy;
     margin: 56px 0;
+
+    &__image {
+      top: 24px;
+      height: 240px;
+    }
   }
 }
 </style>
