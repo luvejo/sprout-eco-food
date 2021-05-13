@@ -115,4 +115,13 @@ textarea {
     background-color: vars.$red;
     color: vars.$white;
   }
+
+  &--green {
+    background-color: vars.$green;
+    color: vars.$white;
+  }
+
+  &--full {
+    width: 100%;
+  }
 }

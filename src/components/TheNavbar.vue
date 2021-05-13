@@ -18,9 +18,17 @@
           <base-icon class="desktop__btn-icon" name="map" />
           Store
         </router-link>
-        <button class="btn desktop__btn btn--white">
+        <button
+          aria-label="Toggle shopping cart"
+          class="btn desktop__btn btn--white"
+          @click.self="toggleShoppingCartPopover"
+        >
           <base-icon class="desktop__btn-icon" name="shopping-bag" />
           Cart: {{ cartCounter }}
+          <shopping-cart-popover
+            v-show="shoppingCartPopoverOpen && cartCounter"
+            :items="shoppingCart"
+          />
         </button>
       </div>
     </nav>
@@ -46,9 +54,14 @@
             </router-link>
           </div>
           <div class="mobile__right">
-            <button class="btn mobile__btn">
+            <button
+              aria-label="Toggle shopping cart"
+              v-if="cartCounter"
+              class="btn mobile__btn"
+              @click="toggleShoppingCartModal"
+            >
               <base-icon class="mobile__btn-icon" name="shopping-bag" />
-              <div v-if="cartCounter" class="mobile__btn-counter">
+              <div class="mobile__btn-counter">
                 {{ cartCounter }}
               </div>
             </button>
@@ -89,26 +102,53 @@
       </div>
     </div>
   </div>
+
+  <shopping-cart-modal
+    @close="toggleShoppingCartModal"
+    v-show="shoppingCartModalOpen && cartCounter"
+    :items="shoppingCart"
+  />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapState } from 'vuex'
+import ShoppingCartPopover from '@/components/ShoppingCartPopover.vue'
+import ShoppingCartModal from '@/components/ShoppingCartModal.vue'
 
 export default defineComponent({
   name: 'TheNavbar',
+  components: {
+    ShoppingCartPopover,
+    ShoppingCartModal,
+  },
   data () {
     return {
       mobileOpen: false,
+      shoppingCartPopoverOpen: false,
+      shoppingCartModalOpen: false,
     }
   },
   computed: {
-    cartCounter () {
-      return 3
+    ...mapState(['shoppingCart']),
+
+    cartCounter (): number {
+      return this.shoppingCart.length
     },
   },
   methods: {
     toggleMobile () {
       this.mobileOpen = !this.mobileOpen
+    },
+    toggleShoppingCartPopover () {
+      if (this.cartCounter) {
+        this.shoppingCartPopoverOpen = !this.shoppingCartPopoverOpen
+      }
+    },
+    toggleShoppingCartModal () {
+      if (this.cartCounter) {
+        this.shoppingCartModalOpen = !this.shoppingCartModalOpen
+      }
     },
   },
 })
@@ -252,6 +292,7 @@ export default defineComponent({
 
     &__btn {
       margin-right: 8px;
+      position: relative;
     }
 
     &__btn-icon {
