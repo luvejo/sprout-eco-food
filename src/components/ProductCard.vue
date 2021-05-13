@@ -34,6 +34,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
+import { getSalePrice, getRegularPrice, getCurrentPrice } from '@/utils'
 import { ProductPrice } from '@/types'
 
 export default defineComponent({
@@ -62,12 +63,10 @@ export default defineComponent({
   },
   computed: {
     salePrice (): number | undefined {
-      const price = this.price.find(p => p.name === 'sale')
-      return price?.price
+      return getSalePrice(this.price)
     },
     regularPrice (): number | undefined {
-      const price = this.price.find(p => p.name === 'regular')
-      return price?.price
+      return getRegularPrice(this.price)
     },
     oldPrice (): number | undefined {
       if (this.salePrice) {
@@ -76,7 +75,7 @@ export default defineComponent({
       return undefined
     },
     currentPrice (): number | undefined {
-      return this.salePrice || this.regularPrice
+      return getCurrentPrice(this.price)
     },
   },
   methods: {
