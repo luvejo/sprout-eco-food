@@ -14,12 +14,20 @@
       </div>
       <div class="cart-item__info-row">
         <div class="cart-item__quantity">
-          <button class="cart-item__btn-minus" @click="incrementQuantity">
-            <base-icon name="minus" :size="15" />
+          <button class="cart-item__btn-minus" @click="decrementQuantity">
+            <base-icon
+              name="minus"
+              :size="15"
+              aria-label="Decrement product quantity"
+            />
           </button>
           <p>{{ quantity }} {{ unit }}</p>
-          <button class="cart-item__btn-plus" @click="decrementQuantity">
-            <base-icon name="plus" :size="15" />
+          <button class="cart-item__btn-plus" @click="incrementQuantity">
+            <base-icon
+              name="plus"
+              :size="15"
+              aria-label="Increment product quantity"
+            />
           </button>
         </div>
         <div class="cart-item__price">${{ formatPrice(totalPrice) }}</div>
@@ -89,10 +97,10 @@ export default defineComponent({
     removeProduct () {
       this.$store.dispatch('removeProductFromCart', this.id)
     },
-    decrementQuantity () {
+    incrementQuantity () {
       this.$store.dispatch('incrementProductQuantity', this.id)
     },
-    incrementQuantity () {
+    decrementQuantity () {
       this.$store.dispatch('decrementProductQuantity', this.id)
     },
   },

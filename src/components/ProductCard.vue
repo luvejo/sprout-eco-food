@@ -12,7 +12,7 @@
 
     <p class="card__name">{{ name }}</p>
 
-    <button class="btn card__btn">
+    <button class="btn card__btn" @click="addProduct" aria-label="Add product">
       <p class="card__btn-label">Add</p>
       <base-icon name="plus" :size="18" />
     </button>
@@ -40,6 +40,10 @@ import { ProductPrice } from '@/types'
 export default defineComponent({
   name: 'ProductCard',
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     imageURL: {
       type: String,
       required: true,
@@ -81,6 +85,16 @@ export default defineComponent({
   methods: {
     formatPrice (price: number): string {
       return price.toFixed(2)
+    },
+    addProduct () {
+      this.$store.dispatch('addProductToCart', {
+        id: this.id,
+        imageURL: this.imageURL,
+        name: this.name,
+        price: this.price,
+        unit: this.unit,
+        rate: this.rate,
+      })
     },
   },
 })
