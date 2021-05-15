@@ -7,7 +7,6 @@ describe('My First Test', () => {
     cy.contains('Eco food Market')
     cy.contains('Discounted goods')
     cy.contains('What to cook?')
-    cy.contains('Bonus program')
     cy.contains('New additions')
     cy.contains('How we work')
   })
