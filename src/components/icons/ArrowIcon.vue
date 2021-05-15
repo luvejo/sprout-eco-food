@@ -17,38 +17,6 @@
     sodipodi:docname="arrow.svg"
     inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
   >
-    <metadata id="metadata115">
-      <rdf:RDF
-        ><cc:Work rdf:about=""
-          ><dc:format>image/svg+xml</dc:format
-          ><dc:type
-            rdf:resource="http://purl.org/dc/dcmitype/StillImage"/></cc:Work
-      ></rdf:RDF>
-    </metadata>
-    <defs id="defs113" />
-    <sodipodi:namedview
-      pagecolor="#ffffff"
-      bordercolor="#666666"
-      borderopacity="1"
-      objecttolerance="10"
-      gridtolerance="10"
-      guidetolerance="10"
-      inkscape:pageopacity="0"
-      inkscape:pageshadow="2"
-      inkscape:window-width="1366"
-      inkscape:window-height="704"
-      id="namedview111"
-      showgrid="false"
-      inkscape:zoom="0.53710938"
-      inkscape:cx="31.140468"
-      inkscape:cy="387.82885"
-      inkscape:window-x="0"
-      inkscape:window-y="27"
-      inkscape:window-maximized="1"
-      inkscape:current-layer="Capa_1"
-      inkscape:document-rotation="0"
-    />
-
     <g id="g80"></g>
     <g id="g82"></g>
     <g id="g84"></g>

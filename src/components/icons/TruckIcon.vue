@@ -17,36 +17,6 @@
     sodipodi:docname="truck.svg"
     inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
   >
-    <metadata id="metadata158">
-      <rdf:RDF
-        ><cc:Work rdf:about=""
-          ><dc:format>image/svg+xml</dc:format
-          ><dc:type
-            rdf:resource="http://purl.org/dc/dcmitype/StillImage"/></cc:Work
-      ></rdf:RDF>
-    </metadata>
-    <defs id="defs156" />
-    <sodipodi:namedview
-      pagecolor="#ffffff"
-      bordercolor="#666666"
-      borderopacity="1"
-      objecttolerance="10"
-      gridtolerance="10"
-      guidetolerance="10"
-      inkscape:pageopacity="0"
-      inkscape:pageshadow="2"
-      inkscape:window-width="1366"
-      inkscape:window-height="704"
-      id="namedview154"
-      showgrid="false"
-      inkscape:zoom="1.0742188"
-      inkscape:cx="256"
-      inkscape:cy="256"
-      inkscape:window-x="0"
-      inkscape:window-y="27"
-      inkscape:window-maximized="1"
-      inkscape:current-layer="Capa_1"
-    />
     <g id="g49" style="fill:#383634;fill-opacity:1">
       <g id="g47" style="fill:#383634;fill-opacity:1">
         <path
