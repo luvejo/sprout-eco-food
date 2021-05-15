@@ -56,6 +56,11 @@ export default defineComponent({
       }
     },
   },
+  watch: {
+    products () {
+      this.productList = this.products
+    },
+  },
 })
 </script>
 

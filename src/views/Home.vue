@@ -1,11 +1,11 @@
 <template>
   <div class="content-max-width">
-  <div class="home">
-    <!-- News Carousel -->
-    <the-news-carousel />
+    <div class="home">
+      <!-- News Carousel -->
+      <the-news-carousel />
 
-    <!-- Section: Discounts -->
-    <section class="section">
+      <!-- Section: Discounts -->
+      <section class="section">
         <div class="section__title-container">
           <h2 class="section__title">
             <base-icon
@@ -18,22 +18,22 @@
               name="tag"
               :size="28"
             />
-          Discounted goods
-        </h2>
+            Discounted goods
+          </h2>
           <router-link to="/catalog/discounted" class="section__link">
-          View all
+            View all
             <base-icon name="chevron-right" class="section__link-icon" />
-        </router-link>
-      </div>
+          </router-link>
+        </div>
 
         <product-carousel :products="discountedGoods" />
-    </section>
+      </section>
 
-    <!-- Section: Recipes -->
+      <!-- Section: Recipes -->
       <the-section-recipes />
 
-    <!-- Section:  New Additions -->
-    <section class="section">
+      <!-- Section:  New Additions -->
+      <section class="section">
         <div class="section__title-container">
           <h2 class="section__title">
             <base-icon
@@ -46,20 +46,20 @@
               name="package"
               :size="28"
             />
-          New additions
-        </h2>
+            New additions
+          </h2>
           <router-link to="/new-additions" class="section__link">
-          View all
-          <base-icon name="chevron-right" />
-        </router-link>
-      </div>
+            View all
+            <base-icon name="chevron-right" />
+          </router-link>
+        </div>
 
         <product-carousel :products="newAdditions" />
-    </section>
+      </section>
 
-    <!-- Section:  Logistics -->
+      <!-- Section:  Logistics -->
       <the-section-logistics />
-  </div>
+    </div>
   </div>
 
   <the-footer />
@@ -72,7 +72,7 @@ import TheNewsCarousel from '@/components/TheNewsCarousel.vue'
 import TheSectionRecipes from '@/components/TheSectionRecipes.vue'
 import TheSectionLogistics from '@/components/TheSectionLogistics.vue'
 import TheFooter from '@/components/TheFooter.vue'
-import data from '@/data'
+import api from '@/api'
 
 export default defineComponent({
   name: 'Home',
@@ -85,9 +85,18 @@ export default defineComponent({
   },
   data () {
     return {
-      discountedGoods: data.discountedGoods,
-      newAdditions: data.newAdditions,
+      discountedGoods: [],
+      newAdditions: [],
     }
+  },
+  created () {
+    api.products.listDiscounted().then(res => {
+      this.discountedGoods = res.data
+    })
+
+    api.products.listNew().then(res => {
+      this.newAdditions = res.data
+    })
   },
 })
 </script>
