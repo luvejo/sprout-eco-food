@@ -22,3 +22,32 @@ export interface ShoppingCartItem {
   rate: number
   quantity: number
 }
+
+export interface StandardCard {
+  type: string
+  title: string
+  description: string
+  callToAction: string
+  callToActionURL: string
+  imageURL: string
+}
+
+export interface CouponCard {
+  type: string
+  title: string
+  coupon: string
+  discount: number
+  description: string
+}
+
+export interface NewsCardsObject {
+  standard: StandardCard
+  coupon: CouponCard
+}
+
+export interface RecipeCard {
+  id: number
+  title: string
+  subtitle: string
+  imageURL: string
+}

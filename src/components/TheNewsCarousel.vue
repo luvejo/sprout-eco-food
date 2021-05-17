@@ -31,9 +31,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import NewsCouponCard from '@/components/NewsCouponCard.vue'
 import NewsStandardCard from '@/components/NewsStandardCard.vue'
+import { NewsCardsObject } from '@/types'
 
 export default defineComponent({
   name: 'TheNewsCarousel',
@@ -41,25 +42,16 @@ export default defineComponent({
     NewsCouponCard,
     NewsStandardCard,
   },
+  props: {
+    news: {
+      type: Object as PropType<NewsCardsObject>,
+      required: true,
+    },
+  },
   data () {
     return {
-      standardCard: {
-        type: 'standard',
-        title: 'Organic bar',
-        description:
-          'Especially suitable for athletes, but also ideal for preventing fatigue and loss of productivity',
-        callToAction: 'Shop now',
-        callToActionURL: '#',
-        imageURL: `${process.env.BASE_URL}img/snacks.png`,
-      },
-      couponCard: {
-        type: 'coupon',
-        title: 'Spring coupon',
-        coupon: 'FRUITS2021',
-        discount: 10,
-        description:
-          'Gives 10% off all seasonal fruits on your first purchase.',
-      },
+      standardCard: this.news.standard,
+      couponCard: this.news.coupon,
       visibleCard: 0,
     }
   },

@@ -2,10 +2,10 @@
   <div class="content-max-width">
     <div class="home">
       <!-- News Carousel -->
-      <the-news-carousel />
+      <the-news-carousel v-if="news" :news="news" />
 
       <!-- Section: Discounts -->
-      <section class="section">
+      <section class="section" v-if="discountedGoods">
         <div class="section__title-container">
           <h2 class="section__title">
             <base-icon
@@ -30,10 +30,10 @@
       </section>
 
       <!-- Section: Recipes -->
-      <the-section-recipes />
+      <the-section-recipes v-if="recipes" :recipes="recipes" />
 
       <!-- Section:  New Additions -->
-      <section class="section">
+      <section class="section" v-if="newAdditions">
         <div class="section__title-container">
           <h2 class="section__title">
             <base-icon
@@ -85,17 +85,27 @@ export default defineComponent({
   },
   data () {
     return {
-      discountedGoods: [],
-      newAdditions: [],
+      discountedGoods: null,
+      newAdditions: null,
+      recipes: null,
+      news: null,
     }
   },
   created () {
+    api.news.getLatest().then(res => {
+      this.news = res.data
+    })
+
     api.products.listDiscounted().then(res => {
       this.discountedGoods = res.data
     })
 
     api.products.listNew().then(res => {
       this.newAdditions = res.data
+    })
+
+    api.recipes.getFeatured().then(res => {
+      this.recipes = res.data
     })
   },
 })

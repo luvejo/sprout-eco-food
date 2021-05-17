@@ -60,19 +60,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import RecipeCategoryCard from '@/components/RecipeCategoryCard.vue'
-import data from '@/data'
+import { RecipeCard } from '@/types'
 
 export default defineComponent({
   name: 'TheSectionRecipes',
   components: {
     RecipeCategoryCard,
   },
-  data () {
-    return {
-      recipes: data.recipes,
-    }
+  props: {
+    recipes: {
+      type: Array as PropType<RecipeCard[]>,
+      required: true,
+    },
   },
 })
 </script>

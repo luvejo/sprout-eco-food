@@ -14,6 +14,12 @@ async function callAPI (endpoint: string, options: any = {}) {
 }
 
 const api = {
+  news: {
+    getLatest () {
+      return callAPI('/news/latest')
+    },
+  },
+
   products: {
     listDiscounted () {
       return callAPI('/products/sale')
@@ -21,6 +27,12 @@ const api = {
 
     listNew () {
       return callAPI('/products/new')
+    },
+  },
+
+  recipes: {
+    getFeatured () {
+      return callAPI('/recipes/featured')
     },
   },
 }
