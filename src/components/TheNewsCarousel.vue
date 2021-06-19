@@ -87,7 +87,7 @@ export default defineComponent({
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 50%;
+    width: 40px;
     z-index: 1;
   }
 
