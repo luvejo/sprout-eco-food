@@ -1,5 +1,6 @@
 <template>
-  <div class="content-max-width">
+  <the-loading-screen v-if="loading" />
+  <div v-else class="content-max-width">
     <div class="home">
       <!-- News Carousel -->
       <the-news-carousel v-if="news" :news="news" />
@@ -62,11 +63,12 @@
     </div>
   </div>
 
-  <the-footer />
+  <the-footer v-if="!loading" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import TheLoadingScreen from '@/components/TheLoadingScreen.vue'
 import ProductCarousel from '@/components/ProductCarousel.vue'
 import TheNewsCarousel from '@/components/TheNewsCarousel.vue'
 import TheSectionRecipes from '@/components/TheSectionRecipes.vue'
@@ -77,6 +79,7 @@ import api from '@/api'
 export default defineComponent({
   name: 'Home',
   components: {
+    TheLoadingScreen,
     ProductCarousel,
     TheNewsCarousel,
     TheSectionRecipes,
@@ -90,6 +93,16 @@ export default defineComponent({
       recipes: null,
       news: null,
     }
+  },
+  computed: {
+    loading (): boolean {
+      return (
+        !this.discountedGoods ||
+        !this.newAdditions ||
+        !this.recipes ||
+        !this.news
+      )
+    },
   },
   created () {
     api.news.getLatest().then(res => {
