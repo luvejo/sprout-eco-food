@@ -63,6 +63,13 @@
         <p class="footer__copyright">2021 © All rights reserved</p>
       </footer>
     </div>
+    <p class="credits">
+      Original concept and UI design by
+      <a href="https://www.behance.net/klochocheek" target="_blank"
+        >Julia Klochok</a
+      >. Developed by
+      <a href="https://luvejo.me" target="_blank">Luis Velásquez</a>.
+    </p>
   </div>
 </template>
 
@@ -141,6 +148,18 @@ export default defineComponent({
   margin-bottom: 16px;
   text-align: center;
   text-decoration: underline;
+}
+
+.credits {
+  padding: 12px;
+  text-align: center;
+  background-color: vars.$black;
+  color: vars.$light-gray;
+
+  a {
+    text-decoration: underline;
+    color: vars.$white;
+  }
 }
 
 /*----------------------------------------------
