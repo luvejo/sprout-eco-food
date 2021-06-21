@@ -1,34 +1,38 @@
-# sprout-ecommerce
+# Sprout Eco Market - Frontend
 
-## Project setup
-```
-npm install
-```
+This is the home page of a fictional eco-products ecommerce. Original concept and UI design by [Julia Klochok](https://www.behance.net/klochocheek).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Installation
 
-### Compiles and minifies for production
-```
-npm run build
+```bash
+# Download the repo.
+git clone https://github.com/luvejo/sprout-frontend.git
 ```
 
-### Run your unit tests
+## Build Setup
+
+```bash
+# Install dependencies.
+$ npm install
+
+# Serve with hot reload at localhost:8080.
+$ npm run serve
 ```
+
+## Testing
+
+```bash
+# Run unit tests.
 npm run test:unit
-```
 
-### Run your end-to-end tests
-```
+# Or end to end tests.
 npm run test:e2e
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Demo
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+At [sprout.luvejo.me](https://sprout.luvejo.me).
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
