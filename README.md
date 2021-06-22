@@ -2,6 +2,14 @@
 
 This is the home page of a fictional eco-products ecommerce. Original concept and UI design by [Julia Klochok](https://www.behance.net/klochocheek).
 
+It was built using Vue 3, Vue Router, Vuex, TypeScript, Sass, Jest, Vue Test Utils and Cypress.
+
+## Features
+
+- [x] _CRUD_ shopping cart items.
+- [x] Mobile first.
+- [x] 404 page.
+
 ## Installation
 
 ```bash
