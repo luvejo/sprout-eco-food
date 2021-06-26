@@ -152,9 +152,14 @@ export default defineComponent({
   MEDIA QUERIES
 ------------------------------------------------*/
 @media screen and (min-width: 640px) {
+  .carousel {
+    &__inner {
+      display: flex;
+    }
+  }
+
   .card {
     width: 33%;
-    display: flex;
 
     &:not(:last-of-type) {
       margin-right: 8px;
