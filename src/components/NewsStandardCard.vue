@@ -1,7 +1,7 @@
 <template>
   <article styles="card">
     <div class="card__info">
-      <div class="card__info-content">
+      <div class="card__info-inner">
         <p class="card__title">{{ title }}</p>
         <p class="card__description">{{ description }}</p>
         <a :href="callToActionURL" class="btn card__btn">{{ callToAction }}</a>
@@ -49,7 +49,7 @@ export default defineComponent({
 
 .card {
   background-color: vars.$dark-cream;
-  display: flex;
+  display: inline-flex;
   grid-template-columns: repeat(10, 1fr);
   overflow: hidden;
 
@@ -60,10 +60,6 @@ export default defineComponent({
     align-content: flex-start;
     flex-direction: column;
     z-index: 1;
-
-    p {
-      display: inline-block;
-    }
   }
 
   &__title {

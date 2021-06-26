@@ -54,7 +54,7 @@ export default defineComponent({
   position: relative;
   background-color: vars.$black;
   padding: 24px;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;

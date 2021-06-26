@@ -1,30 +1,25 @@
 <template>
-  <div class="carousel">
-    <news-standard-card
-      ref="0"
-      class="card card--highlighted"
-      :class="{ 'card--visible': visibleCard === 0 }"
-      v-bind="standardCard"
-    />
+  <div class="carousel" v-swipe="onSwipe">
+    <div class="carousel__inner" :style="innerStyles">
+      <news-standard-card
+        class="card card--highlighted"
+        v-bind="standardCard"
+      />
 
-    <news-coupon-card
-      ref="1"
-      class="card"
-      :class="{ 'card--visible': visibleCard === 1 }"
-      v-bind="couponCard"
-    />
+      <news-coupon-card class="card" v-bind="couponCard" />
+    </div>
     <div class="carousel__left-btn" @click="prev"></div>
-    <div class="carousel__right-btn" @click="prev"></div>
+    <div class="carousel__right-btn" @click="next"></div>
   </div>
   <div class="carousel-nav">
     <button
       class="carousel-nav__btn"
-      :class="{ 'carousel-nav__btn--active': visibleCard === 0 }"
+      :class="{ 'carousel-nav__btn--active': activeIndex === 0 }"
       @click="goTo(0)"
     ></button>
     <button
       class="carousel-nav__btn"
-      :class="{ 'carousel-nav__btn--active': visibleCard === 1 }"
+      :class="{ 'carousel-nav__btn--active': activeIndex === 1 }"
       @click="goTo(1)"
     ></button>
   </div>
@@ -52,24 +47,33 @@ export default defineComponent({
     return {
       standardCard: this.news.standard,
       couponCard: this.news.coupon,
-      visibleCard: 0,
+      activeIndex: 0,
     }
   },
-  methods: {
-    getNewsCard (type: string) {
-      if (type === 'coupon') {
-        return 'NewsCouponCard'
+  computed: {
+    innerStyles (): any {
+      return {
+        transform: `translateX(-${this.activeIndex * 100}%)`,
       }
-      return 'NewsStandardCard'
+    },
+  },
+  methods: {
+    onSwipe (direction: string) {
+      direction === 'left' && this.next()
+      direction === 'right' && this.prev()
     },
     goTo (index: number) {
-      this.visibleCard = index
+      this.activeIndex = index
     },
     prev () {
-      this.visibleCard = Math.abs((this.visibleCard - 1) % 2)
+      if (this.activeIndex !== 0) {
+        this.activeIndex = Math.abs((this.activeIndex - 1) % 2)
+      }
     },
     next () {
-      this.visibleCard = Math.abs((this.visibleCard + 1) % 2)
+      if (this.activeIndex !== 1) {
+        this.activeIndex = Math.abs((this.activeIndex + 1) % 2)
+      }
     },
   },
 })
@@ -80,7 +84,12 @@ export default defineComponent({
 
 .carousel {
   position: relative;
-  display: flex;
+  overflow: hidden;
+
+  &__inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+  }
 
   &__left-btn,
   &__right-btn {
@@ -103,9 +112,10 @@ export default defineComponent({
 .card {
   border-radius: vars.$border-radius-big;
   min-height: 240px;
-  display: none;
   user-select: none;
   width: 100%;
+  white-space: normal;
+  vertical-align: top;
 
   &--highlighted {
     flex-grow: 1;

@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VSwipe from './directives/v-swipe'
 
 const app = createApp(App)
 
@@ -24,4 +25,5 @@ requireComponent.keys().forEach(function (fileName) {
 app
   .use(store)
   .use(router)
+  .use(VSwipe)
   .mount('#app')
