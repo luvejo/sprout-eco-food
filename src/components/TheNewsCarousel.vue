@@ -155,6 +155,11 @@ export default defineComponent({
   .carousel {
     &__inner {
       display: flex;
+      // We use "!important" because we need to
+      // override the inline styles in case they
+      // are not "translateX(0)" when viewport
+      // changes.
+      transform: translateX(0) !important;
     }
   }
 
