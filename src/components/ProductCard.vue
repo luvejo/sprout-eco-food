@@ -109,7 +109,7 @@ export default defineComponent({
   border-radius: vars.$border-radius-big;
   margin-top: 20px;
   margin-right: 24px;
-  display: grid;
+  display: inline-grid;
   grid-template-rows: repeat(3, 44px);
   grid-template-columns: 54px 24px 54px;
   grid-template-areas:
