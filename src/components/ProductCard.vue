@@ -105,6 +105,7 @@ export default defineComponent({
 
 .card {
   background-color: vars.$white;
+  white-space: normal;
   padding: 14px;
   border-radius: vars.$border-radius-big;
   margin-top: 20px;

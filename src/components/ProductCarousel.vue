@@ -70,7 +70,6 @@ export default defineComponent({
 
   methods: {
     setNavigationStep () {
-      console.log(this.inner.scrollWidth / this.products.length)
       this.navigationStep = `${this.inner.scrollWidth / this.products.length}px`
     },
 
@@ -139,7 +138,6 @@ export default defineComponent({
 @use '@/assets/css/vars' as vars;
 
 .carousel-container {
-  padding: 0 56px;
   position: relative;
   margin-top: 20px;
 }
@@ -155,21 +153,7 @@ export default defineComponent({
 }
 
 .btn-nav {
-  background-color: vars.$white;
-  border-radius: 50%;
-  height: 44px;
-  width: 44px;
-  box-shadow: 0px 3px 10px rgb(218, 218, 218);
-  position: absolute;
-  top: 50%;
-
-  &--left {
-    left: 0%;
-  }
-
-  &--right {
-    right: 0%;
-  }
+  display: none;
 }
 
 /*------------------------------------------------
@@ -180,6 +164,26 @@ export default defineComponent({
     padding: 0 56px;
     position: relative;
     margin-top: 56px;
+  }
+
+  .btn-nav {
+    display: flex;
+    justify-content: center;
+    background-color: vars.$white;
+    border-radius: 50%;
+    height: 44px;
+    width: 44px;
+    box-shadow: 0px 3px 10px rgb(218, 218, 218);
+    position: absolute;
+    top: 50%;
+
+    &--left {
+      left: 0%;
+    }
+
+    &--right {
+      right: 0%;
+    }
   }
 }
 </style>
