@@ -92,34 +92,29 @@ export default defineComponent({
       newAdditions: null,
       recipes: null,
       news: null,
+      loading: true,
     }
   },
-  computed: {
-    loading (): boolean {
-      return (
-        !this.discountedGoods ||
-        !this.newAdditions ||
-        !this.recipes ||
-        !this.news
-      )
-    },
-  },
   created () {
-    api.news.getLatest().then(res => {
-      this.news = res.data
-    })
+    Promise.all([
+      api.news.getLatest().then(res => {
+        this.news = res.data
+      }),
 
-    api.products.listDiscounted().then(res => {
-      this.discountedGoods = res.data
-    })
+      api.products.listDiscounted().then(res => {
+        this.discountedGoods = res.data
+      }),
 
-    api.products.listNew().then(res => {
-      this.newAdditions = res.data
-    })
+      api.products.listNew().then(res => {
+        this.newAdditions = res.data
+      }),
 
-    api.recipes.getFeatured().then(res => {
-      this.recipes = res.data
-    })
+      api.recipes.getFeatured().then(res => {
+        this.recipes = res.data
+      }),
+    ])
+      .then(() => (this.loading = false))
+      .catch(() => this.$router.push({ name: 'NotFound' }))
   },
 })
 </script>
