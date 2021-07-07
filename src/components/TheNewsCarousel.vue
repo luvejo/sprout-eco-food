@@ -152,6 +152,12 @@ export default defineComponent({
   MEDIA QUERIES
 ------------------------------------------------*/
 @media screen and (min-width: 640px) {
+  .card {
+    min-height: 312px;
+  }
+}
+
+@media screen and (min-width: 780px) {
   .carousel {
     &__inner {
       display: flex;
@@ -173,12 +179,6 @@ export default defineComponent({
 
   .carousel-nav {
     display: none;
-  }
-}
-
-@media screen and (min-width: 780px) {
-  .card {
-    min-height: 240px;
   }
 }
 </style>

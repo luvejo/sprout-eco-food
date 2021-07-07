@@ -176,14 +176,14 @@ export default defineComponent({
 /*----------------------------------------------
   MEDIA QUERIES
 -----------------------------------------------*/
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 640px) {
   .card {
     padding: 40px;
     padding-top: 0px;
     align-items: center;
 
     &__header {
-      padding-top: 80px;
+      padding-top: 60px;
     }
 
     &__title {

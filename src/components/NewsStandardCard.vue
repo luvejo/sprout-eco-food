@@ -89,7 +89,7 @@ export default defineComponent({
 /*----------------------------------------------
   MEDIA QUERIES
 -----------------------------------------------*/
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 640px) {
   .card {
     &__info {
       padding: 80px 0 60px 10%;
