@@ -65,7 +65,7 @@ export default defineComponent({
   background-color: vars.$white;
   border-radius: vars.$border-radius;
   position: relative;
-  border: 1px solid #edeae7;
+  border: 1px solid vars.$dark-cream;
 
   &__input {
     background-color: transparent;

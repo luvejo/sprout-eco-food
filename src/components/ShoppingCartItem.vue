@@ -158,7 +158,7 @@ export default defineComponent({
 
   &__quantity {
     display: flex;
-    border: 1px solid vars.$light-cream;
+    border: 1px solid vars.$dark-cream;
     border-radius: vars.$border-radius;
     align-items: center;
   }
