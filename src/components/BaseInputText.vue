@@ -1,18 +1,21 @@
 <template>
-  <div class="input-wrapper">
-    <input
-      class="input-wrapper__input"
-      :class="{ 'input-wrapper--with-icon': this.icon }"
-      type="text"
-      :placeholder="placeholder"
-    />
+  <div class="field-container">
+    <label class="input-label" v-if="label">{{ label }}</label>
+    <div class="input-wrapper">
+      <input
+        class="input-wrapper__input"
+        :class="{ 'input-wrapper--with-icon': this.icon }"
+        type="text"
+        :placeholder="placeholder"
+      />
 
-    <div
-      v-if="icon"
-      class="input-wrapper__icon"
-      :class="{ 'input-wrapper__icon--background': this.icon?.background }"
-    >
-      <base-icon :name="icon.name" :size="16" />
+      <div
+        v-if="icon"
+        class="input-wrapper__icon"
+        :class="{ 'input-wrapper__icon--background': this.icon?.background }"
+      >
+        <base-icon :name="icon.name" :size="16" />
+      </div>
     </div>
   </div>
 </template>
@@ -24,6 +27,10 @@ import { InputIcon } from '@/types'
 export default defineComponent({
   name: 'BaseInputText',
   props: {
+    label: {
+      type: String,
+      default: '',
+    },
     placeholder: {
       type: String,
       default: '',
@@ -42,13 +49,23 @@ export default defineComponent({
 <style lang="scss">
 @use '@/assets/css/vars' as vars;
 
-.input-wrapper {
+.field-container {
   width: 200px;
+}
+
+.input-label {
+  margin-bottom: 8px;
+  display: inline-block;
+  color: vars.$dark-gray;
+}
+
+.input-wrapper {
   height: 40px;
   display: flex;
   background-color: vars.$white;
   border-radius: vars.$border-radius;
   position: relative;
+  border: 1px solid #edeae7;
 
   &__input {
     background-color: transparent;

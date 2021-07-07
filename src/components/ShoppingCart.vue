@@ -6,12 +6,15 @@
     </div>
     <div class="cart__subtotal">
       <p>Subtotal:</p>
-      <p>${{ formatPrice(shoppingCartTotal) }}</p>
+      <p>${{ formatPrice(shoppingCartSubTotal) }}</p>
     </div>
 
-    <button class="btn btn--green btn--full cart__btn">
+    <router-link
+      :to="{ name: 'Checkout' }"
+      class="btn btn--green btn--full cart__btn"
+    >
       To checkout
-    </button>
+    </router-link>
   </div>
 </template>
 
@@ -32,7 +35,7 @@ export default defineComponent({
     },
   },
   computed: {
-    ...mapGetters(['shoppingCartTotal']),
+    ...mapGetters(['shoppingCartSubTotal']),
   },
   methods: {
     formatPrice (price: number): string {

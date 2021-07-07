@@ -8,13 +8,18 @@
           class="cart-item__btn-close"
           aria-label="Remove product"
           @click="removeProduct"
+          type="button"
         >
           <base-icon name="x" :size="18" />
         </button>
       </div>
       <div class="cart-item__info-row">
         <div class="cart-item__quantity">
-          <button class="cart-item__btn-minus" @click="decrementQuantity">
+          <button
+            class="cart-item__btn-minus"
+            @click="decrementQuantity"
+            type="button"
+          >
             <base-icon
               name="minus"
               :size="15"
@@ -22,7 +27,11 @@
             />
           </button>
           <p>{{ quantity }} {{ unit }}</p>
-          <button class="cart-item__btn-plus" @click="incrementQuantity">
+          <button
+            class="cart-item__btn-plus"
+            @click="incrementQuantity"
+            type="button"
+          >
             <base-icon
               name="plus"
               :size="15"

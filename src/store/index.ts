@@ -5,10 +5,11 @@ import { ShoppingCartItem } from '@/types'
 export default createStore({
   state: {
     shoppingCart: [] as ShoppingCartItem[],
+    deliveryPrice: 8.2,
   },
 
   getters: {
-    shoppingCartTotal (state) {
+    shoppingCartSubTotal (state) {
       const reducer = (total: number, item: ShoppingCartItem) => {
         const currentPrice = getCurrentPrice(item.price)
 
@@ -19,6 +20,12 @@ export default createStore({
       }
 
       return state.shoppingCart.reduce(reducer, 0)
+    },
+
+    shoppingCartTotal (state, getters) {
+      const subTotal = getters.shoppingCartSubTotal
+      if (!subTotal) return 0
+      return subTotal + state.deliveryPrice
     },
   },
 
