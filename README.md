@@ -7,8 +7,10 @@ It was built using Vue 3, Vue Router, Vuex, TypeScript, Sass, Jest, Vue Test Uti
 ## Features
 
 - [x] _CRUD_ shopping cart items.
-- [x] Mobile first.
+- [x] Home page.
+- [x] Checkout page.
 - [x] 404 page.
+- [x] Mobile first.
 
 ## Installation
 

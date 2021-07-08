@@ -19,12 +19,32 @@
 
         <fieldset class="buyer-data__fieldset">
           <legend class="buyer-data__legend">Delivery details:</legend>
-          <base-input-text class="buyer-data__input" label="Country / Region" />
-          <base-input-text class="buyer-data__input" label="Town / City" />
+          <base-select
+            class="buyer-data__input"
+            label="Country / Region"
+            name="country"
+            :options="[{ id: 0, value: 'United Kingdom (UK)' }]"
+          />
+          <base-select
+            class="buyer-data__input"
+            label="Town / City"
+            name="city"
+            :options="[{ id: 0, value: 'London' }]"
+          />
           <base-input-text class="buyer-data__input" label="Street" />
           <base-input-text class="buyer-data__input" label="Postcode" />
-          <base-input-text class="buyer-data__input" label="Packaging type" />
-          <base-input-text class="buyer-data__input" label="Shipping option" />
+          <base-select
+            class="buyer-data__input"
+            label="Packaging type"
+            name="packaging-type"
+            :options="[{ id: 0, value: 'Without plastic' }]"
+          />
+          <base-select
+            class="buyer-data__input"
+            label="Shipping option"
+            name="shipping-option"
+            :options="[{ id: 0, value: 'By courier' }]"
+          />
         </fieldset>
 
         <fieldset class="buyer-data__fieldset">
@@ -112,14 +132,12 @@ import { defineComponent } from 'vue'
 import { mapGetters, mapState } from 'vuex'
 import TheFooter from '@/components/TheFooter.vue'
 import ShoppingCartItem from '@/components/ShoppingCartItem.vue'
-import BaseRadio from '@/components/BaseRadio.vue'
 
 export default defineComponent({
   name: 'Home',
   components: {
     TheFooter,
     ShoppingCartItem,
-    BaseRadio,
   },
   computed: {
     ...mapState(['shoppingCart', 'deliveryPrice']),
