@@ -151,6 +151,13 @@ export default defineComponent({
       }
     },
   },
+  mounted () {
+    this.$router.beforeEach(() => {
+      this.shoppingCartPopoverOpen = false
+      this.shoppingCartModalOpen = false
+      this.mobileOpen = false
+    })
+  },
 })
 </script>
 
