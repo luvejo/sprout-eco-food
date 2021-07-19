@@ -63,6 +63,7 @@ export default defineComponent({
 
   mounted () {
     this.setNavigationStep()
+    this.resetTranslate()
   },
 
   unmounted () {
@@ -117,19 +118,21 @@ export default defineComponent({
     resetTranslate () {
       this.innerStyles = {
         transition: 'none',
-        transform: 'translateX(0)',
+        transform: `translateX(-${this.navigationStep})`,
       }
     },
 
     moveLeft () {
       this.innerStyles = {
-        transform: `translateX(-${this.navigationStep})`,
+        transform: `translateX(-${this.navigationStep})
+                    translateX(-${this.navigationStep})`,
       }
     },
 
     moveRight () {
       this.innerStyles = {
-        transform: `translateX(${this.navigationStep})`,
+        transform: `translateX(${this.navigationStep})
+                    translateX(-${this.navigationStep})`,
       }
     },
   },
