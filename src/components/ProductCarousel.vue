@@ -40,6 +40,7 @@ export default defineComponent({
       productList: this.products,
       innerStyles: {},
       navigationStep: '',
+      transitioning: false,
     }
   },
 
@@ -79,22 +80,29 @@ export default defineComponent({
     },
 
     next () {
+      if (this.transitioning) return
+      this.transitioning = true
+
       this.moveLeft()
 
       this.afterTransition(() => {
         const product = this.productList.shift()
         product && this.productList.push(product)
         this.resetTranslate()
+        this.transitioning = false
       })
     },
 
     prev () {
+      if (this.transitioning) return
+      this.transitioning = true
       this.moveRight()
 
       this.afterTransition(() => {
         const product = this.productList.pop()
         product && this.productList.unshift(product)
         this.resetTranslate()
+        this.transitioning = false
       })
     },
 
