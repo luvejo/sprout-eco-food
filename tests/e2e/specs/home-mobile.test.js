@@ -7,15 +7,15 @@ describe('Test home page on mobile viewport', () => {
   })
 
   it('can toggle the navbar menu', () => {
-    cy.get('[aria-label="Close menu"]').should('not.be.visible')
+    cy.get('[aria-label="Close menu"]').should('not.exist')
     cy.get('input[placeholder="Search"]').should('not.be.visible')
 
     cy.get('[aria-label="Open menu"]').click()
-    cy.get('[aria-label="Open menu"]').should('not.be.visible')
+    cy.get('[aria-label="Open menu"]').should('not.exist')
     cy.get('input[placeholder="Search"]').should('be.visible')
 
     cy.get('[aria-label="Close menu"]').click()
-    cy.get('[aria-label="Close menu"]').should('not.be.visible')
+    cy.get('[aria-label="Close menu"]').should('not.exist')
     cy.get('input[placeholder="Search"]').should('not.be.visible')
   })
 
@@ -25,7 +25,8 @@ describe('Test home page on mobile viewport', () => {
 
     cy.get('[aria-label="Add product"]')
       .should('be.visible')
-      .first()
+      .eq(1)
+      .should('be.visible')
       .click()
 
     cy.get('[aria-label="Toggle shopping cart"]')
@@ -35,11 +36,14 @@ describe('Test home page on mobile viewport', () => {
     cy.contains('My shopping cart:').should('not.be.visible')
     cy.get('button:contains("To checkout")').should('be.not.visible')
 
-    // Adding a second product.
-    cy.get('[aria-label="Shift products to the left"]')
+    // swiping the carousel.
+    cy.get('.carousel-container')
       .first()
-      .click()
+      .trigger('touchstart', { touches: [{ clientX: 80 }] })
+      .trigger('touchmove', { touches: [{ clientX: 20 }] })
+      .trigger('touchend')
 
+    // Adding a second product.
     cy.get('[aria-label="Add product"]')
       .should('be.visible')
       .first()
@@ -53,13 +57,15 @@ describe('Test home page on mobile viewport', () => {
       .last()
       .click()
 
-    cy.get('button:contains("To checkout")').should('be.visible')
+    cy.get('a:contains("To checkout")')
+      .filter(':visible')
+      .should('to.have.lengthOf', 1)
 
     cy.get(':contains("Subtotal")')
       .filter(':visible')
       .closest('p')
       .parent()
-      .contains('$8.00')
+      .contains('$11.90')
 
     // Increment first product's quantity.
     cy.get('[aria-label="Increment product quantity"]')
@@ -71,7 +77,7 @@ describe('Test home page on mobile viewport', () => {
       .filter(':visible')
       .closest('p')
       .parent()
-      .contains('$16.00')
+      .contains('$27.30')
 
     // Decrement first product's quantity.
     cy.get('[aria-label="Decrement product quantity"]')
@@ -83,7 +89,7 @@ describe('Test home page on mobile viewport', () => {
       .filter(':visible')
       .closest('p')
       .parent()
-      .contains('$12.00')
+      .contains('$19.60')
 
     // Removing the first product.
     cy.get('[aria-label="Remove product"]')
@@ -95,7 +101,7 @@ describe('Test home page on mobile viewport', () => {
       .filter(':visible')
       .closest('p')
       .parent()
-      .contains('$4.00')
+      .contains('$4.20')
 
     cy.get('[aria-label="Toggle shopping cart"]')
       .should('be.visible')

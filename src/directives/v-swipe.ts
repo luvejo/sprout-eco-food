@@ -21,10 +21,10 @@ export default function VSwipe (app: any) {
         if (onTouch) {
           const mTouches = e.touches
 
-          if (touches[0].screenX - mTouches[0].screenX > Distance) {
+          if (touches[0].clientX - mTouches[0].clientX > Distance) {
             binding.value('left')
             onTouch = false
-          } else if (touches[0].screenX - mTouches[0].screenX < -Distance) {
+          } else if (touches[0].clientX - mTouches[0].clientX < -Distance) {
             binding.value('right')
             onTouch = false
           }
