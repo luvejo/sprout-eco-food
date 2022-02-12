@@ -1,25 +1,25 @@
-# Sprout Eco Market - Frontend
+# Sprout Eco Market - Frontend 🥑
 
 This is the home page of a fictional eco-products ecommerce. Original concept and UI design by [Julia Klochok](https://www.behance.net/klochocheek).
 
 It was built using Vue 3, Vue Router, Vuex, TypeScript, Sass, Jest, Vue Test Utils and Cypress.
 
-## Features
+## 🌿 Features
 
-- [x] _CRUD_ shopping cart items.
-- [x] Home page.
-- [x] Checkout page.
-- [x] 404 page.
-- [x] Mobile first.
+- _CRUD_ shopping cart items.  
+- Home page.  
+- Checkout page.  
+- 404 page.  
+- Mobile first.  
 
-## Installation
+## 🌿 Installation
 
 ```bash
 # Download the repo.
 git clone https://github.com/luvejo/sprout-frontend.git
 ```
 
-## Build Setup
+## 🌿 Build Setup
 
 ```bash
 # Install dependencies.
@@ -29,7 +29,7 @@ $ npm install
 $ npm run serve
 ```
 
-## Testing
+## 🌿 Testing
 
 ```bash
 # Run unit tests.
@@ -39,10 +39,14 @@ npm run test:unit
 npm run test:e2e
 ```
 
-## Demo
+## 🌿 Demo
 
 At [sprout.luvejo.me](https://sprout.luvejo.me).
 
-## License
+## 🌿 Screenshot
+
+![Screenshot 2022-01-26 at 13-25-38 sprout-ecommerce](https://user-images.githubusercontent.com/16514302/153708263-e64bd3e6-f713-4923-823f-8f4ba6a32edf.png)
+
+## 🌿 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
