@@ -1,38 +1,33 @@
-import axios from 'axios'
+import data from '@/data'
 
-const BASE_URL = process.env.VUE_APP_API_BASE_URL
-
-axios.defaults.baseURL = `${BASE_URL}/api`
-axios.defaults.headers.common.Accept = 'application/json'
-axios.defaults.headers.common['Content-Type'] = 'application/json'
-axios.defaults.withCredentials = true
-
-async function callAPI (endpoint: string, options: any = {}) {
-  return await axios({ url: endpoint, ...options })
-    .then(res => res.data)
-    .catch(err => err.response.data)
+function mockRequest (data: any) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(data)
+    }, 1000)
+  })
 }
 
 const api = {
   news: {
     getLatest () {
-      return callAPI('/news/latest')
+      return mockRequest(data.news)
     },
   },
 
   products: {
     listDiscounted () {
-      return callAPI('/products/sale')
+      return mockRequest(data.saleProducts)
     },
 
     listNew () {
-      return callAPI('/products/new')
+      return mockRequest(data.newProducts)
     },
   },
 
   recipes: {
     getFeatured () {
-      return callAPI('/recipes/featured')
+      return mockRequest(data.recipes)
     },
   },
 }

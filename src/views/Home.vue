@@ -97,20 +97,20 @@ export default defineComponent({
   },
   created () {
     Promise.all([
-      api.news.getLatest().then(res => {
-        this.news = res.data
+      api.news.getLatest().then((data: any) => {
+        this.news = data
       }),
 
-      api.products.listDiscounted().then(res => {
-        this.discountedGoods = res.data
+      api.products.listDiscounted().then((data: any) => {
+        this.discountedGoods = data
       }),
 
-      api.products.listNew().then(res => {
-        this.newAdditions = res.data
+      api.products.listNew().then((data: any) => {
+        this.newAdditions = data
       }),
 
-      api.recipes.getFeatured().then(res => {
-        this.recipes = res.data
+      api.recipes.getFeatured().then((data: any) => {
+        this.recipes = data
       }),
     ])
       .then(() => (this.loading = false))
