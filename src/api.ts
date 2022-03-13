@@ -1,7 +1,7 @@
 import data from '@/data'
 
-function mockRequest (data: any) {
-  return new Promise((resolve, reject) => {
+function mockRequest (data: any): any {
+  return new Promise(resolve => {
     setTimeout(() => {
       resolve(data)
     }, 1000)
@@ -10,23 +10,23 @@ function mockRequest (data: any) {
 
 const api = {
   news: {
-    getLatest () {
+    getLatest (): any {
       return mockRequest(data.news)
     },
   },
 
   products: {
-    listDiscounted () {
+    listDiscounted (): any {
       return mockRequest(data.saleProducts)
     },
 
-    listNew () {
+    listNew (): any {
       return mockRequest(data.newProducts)
     },
   },
 
   recipes: {
-    getFeatured () {
+    getFeatured (): any {
       return mockRequest(data.recipes)
     },
   },
