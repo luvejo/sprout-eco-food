@@ -1,18 +1,28 @@
 <template>
   <article class="card">
     <div class="card__image-wrapper">
-      <img class="card__image" :src="imageURL" :alt="` ${name} image`" />
+      <img
+        class="card__image"
+        :src="imageURL"
+        :alt="` ${name} image`"
+      />
     </div>
 
     <div class="card__rate">
       <base-icon class="card__star" name="star" />
       {{ rate }}/5
     </div>
-    <div v-if="salePrice" class="card__sale-label">ON SALE</div>
+    <div v-if="salePrice" class="card__sale-label">
+      ON SALE
+    </div>
 
     <p class="card__name">{{ name }}</p>
 
-    <button class="btn card__btn" @click="addProduct" aria-label="Add product">
+    <button
+      class="btn card__btn"
+      @click="addProduct"
+      aria-label="Add product"
+    >
       <p class="card__btn-label">Add</p>
       <base-icon name="plus" :size="18" />
     </button>
@@ -33,9 +43,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { getSalePrice, getRegularPrice, getCurrentPrice } from '@/utils'
-import { ProductPrice } from '@/types'
+import { defineComponent } from 'vue'
+import {
+  getSalePrice,
+  getRegularPrice,
+  getCurrentPrice,
+} from '@/utils'
+import type { PropType } from 'vue'
+import type { ProductPrice } from '@/types'
 
 export default defineComponent({
   name: 'ProductCard',
@@ -66,27 +81,27 @@ export default defineComponent({
     },
   },
   computed: {
-    salePrice (): number | undefined {
+    salePrice(): number | undefined {
       return getSalePrice(this.price)
     },
-    regularPrice (): number | undefined {
+    regularPrice(): number | undefined {
       return getRegularPrice(this.price)
     },
-    oldPrice (): number | undefined {
+    oldPrice(): number | undefined {
       if (this.salePrice) {
         return this.regularPrice
       }
       return undefined
     },
-    currentPrice (): number | undefined {
+    currentPrice(): number | undefined {
       return getCurrentPrice(this.price)
     },
   },
   methods: {
-    formatPrice (price: number): string {
-      return price.toFixed(2)
+    formatPrice(price: number | undefined): string {
+      return price ? price.toFixed(2) : '0.00'
     },
-    addProduct () {
+    addProduct() {
       this.$store.dispatch('addProductToCart', {
         id: this.id,
         imageURL: this.imageURL,

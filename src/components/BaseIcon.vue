@@ -4,12 +4,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { IconStyleObject } from '@/types'
+import type { IconStyleObject } from '@/types'
 
 import feather from 'feather-icons'
 
 export default defineComponent({
-  name: 'BaseIcon',
+  name: 'base-icon',
   props: {
     name: {
       type: String,
@@ -23,7 +23,7 @@ export default defineComponent({
       default: 22,
     },
   },
-  data () {
+  data() {
     return {
       styleObject: {
         width: `${this.size}px`,
@@ -32,7 +32,7 @@ export default defineComponent({
     }
   },
   computed: {
-    iconSvg (): string {
+    iconSvg(): string {
       return feather.icons[this.name].toSvg({
         width: this.size,
         height: this.size,

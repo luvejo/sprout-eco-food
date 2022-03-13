@@ -1,10 +1,12 @@
 <template>
   <div class="field-container">
-    <label class="input-label" v-if="label">{{ label }}</label>
+    <label class="input-label" v-if="label">{{
+      label
+    }}</label>
     <div class="input-wrapper">
       <input
         class="input-wrapper__input"
-        :class="{ 'input-wrapper--with-icon': this.icon }"
+        :class="{ 'input-wrapper--with-icon': icon }"
         type="text"
         :placeholder="placeholder"
       />
@@ -12,7 +14,10 @@
       <div
         v-if="icon"
         class="input-wrapper__icon"
-        :class="{ 'input-wrapper__icon--background': this.icon?.background }"
+        :class="{
+          'input-wrapper__icon--background':
+            icon?.background,
+        }"
       >
         <base-icon :name="icon.name" :size="16" />
       </div>
@@ -21,8 +26,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { InputIcon } from '@/types'
+import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { InputIcon } from '@/types'
 
 export default defineComponent({
   name: 'BaseInputText',
@@ -76,7 +82,8 @@ export default defineComponent({
   }
 
   &__icon {
-    border-radius: 0 vars.$border-radius vars.$border-radius 0;
+    border-radius: 0 vars.$border-radius vars.$border-radius
+      0;
     background-color: transparent;
     padding: 0 16px;
     display: flex;

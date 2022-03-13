@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import { getCurrentPrice } from '@/utils'
-import { ShoppingCartItem } from '@/types'
+import type { ShoppingCartItem } from '@/types'
 
 export default createStore({
   state: {
@@ -9,8 +9,11 @@ export default createStore({
   },
 
   getters: {
-    shoppingCartSubTotal (state) {
-      const reducer = (total: number, item: ShoppingCartItem) => {
+    shoppingCartSubTotal(state) {
+      const reducer = (
+        total: number,
+        item: ShoppingCartItem,
+      ) => {
         const currentPrice = getCurrentPrice(item.price)
 
         if (currentPrice) {
@@ -22,7 +25,7 @@ export default createStore({
       return state.shoppingCart.reduce(reducer, 0)
     },
 
-    shoppingCartTotal (state, getters) {
+    shoppingCartTotal(state, getters) {
       const subTotal = getters.shoppingCartSubTotal
       if (!subTotal) return 0
       return subTotal + state.deliveryPrice
@@ -30,9 +33,12 @@ export default createStore({
   },
 
   actions: {
-    addProductToCart ({ state, commit }, product: ShoppingCartItem) {
+    addProductToCart(
+      { state, commit },
+      product: ShoppingCartItem,
+    ) {
       const existingItem = state.shoppingCart.find(
-        item => item.id === product.id,
+        (item) => item.id === product.id,
       )
 
       if (existingItem) {
@@ -42,16 +48,18 @@ export default createStore({
       }
     },
 
-    removeProductFromCart ({ commit }, id) {
+    removeProductFromCart({ commit }, id) {
       commit('removeProductFromCart', { id })
     },
 
-    incrementProductQuantity ({ commit }, id) {
+    incrementProductQuantity({ commit }, id) {
       commit('incrementProductQuantity', { id })
     },
 
-    decrementProductQuantity ({ state, commit }, id) {
-      const item = state.shoppingCart.find(item => item.id === id)
+    decrementProductQuantity({ state, commit }, id) {
+      const item = state.shoppingCart.find(
+        (item) => item.id === id,
+      )
 
       if (item && item.quantity > 1) {
         commit('decrementProductQuantity', { id })
@@ -60,23 +68,29 @@ export default createStore({
   },
 
   mutations: {
-    addProductToCart (state, product: ShoppingCartItem) {
+    addProductToCart(state, product: ShoppingCartItem) {
       product.quantity = 1
       state.shoppingCart.push(product)
     },
 
-    removeProductFromCart (state, { id }) {
-      const productIndex = state.shoppingCart.findIndex(item => item.id === id)
+    removeProductFromCart(state, { id }) {
+      const productIndex = state.shoppingCart.findIndex(
+        (item) => item.id === id,
+      )
       state.shoppingCart.splice(productIndex, 1)
     },
 
-    incrementProductQuantity (state, { id }) {
-      const productIndex = state.shoppingCart.findIndex(item => item.id === id)
+    incrementProductQuantity(state, { id }) {
+      const productIndex = state.shoppingCart.findIndex(
+        (item) => item.id === id,
+      )
       state.shoppingCart[productIndex].quantity++
     },
 
-    decrementProductQuantity (state, { id }) {
-      const productIndex = state.shoppingCart.findIndex(item => item.id === id)
+    decrementProductQuantity(state, { id }) {
+      const productIndex = state.shoppingCart.findIndex(
+        (item) => item.id === id,
+      )
       state.shoppingCart[productIndex].quantity--
     },
   },

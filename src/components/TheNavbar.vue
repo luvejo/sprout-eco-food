@@ -6,12 +6,18 @@
         <router-link :to="{ name: 'Home' }">
           <div class="desktop__logo">SPROUT</div>
         </router-link>
-        <base-input-text :icon="{ name: 'search' }" placeholder="Search" />
+        <base-input-text
+          :icon="{ name: 'search' }"
+          placeholder="Search"
+        />
       </div>
 
       <div class="desktop__right">
         <router-link class="btn desktop__btn" to="/about">
-          <base-icon class="desktop__btn-icon" name="info" />
+          <base-icon
+            class="desktop__btn-icon"
+            name="info"
+          />
           About
         </router-link>
         <router-link class="btn desktop__btn" to="/store">
@@ -23,7 +29,10 @@
           class="btn desktop__btn btn--white"
           @click.self="toggleShoppingCartPopover"
         >
-          <base-icon class="desktop__btn-icon" name="shopping-bag" />
+          <base-icon
+            class="desktop__btn-icon"
+            name="shopping-bag"
+          />
           Cart: {{ cartCounter }}
           <shopping-cart-popover
             v-show="shoppingCartPopoverOpen && cartCounter"
@@ -60,7 +69,10 @@
               class="btn mobile__btn"
               @click="toggleShoppingCartModal"
             >
-              <base-icon class="mobile__btn-icon" name="shopping-bag" />
+              <base-icon
+                class="mobile__btn-icon"
+                name="shopping-bag"
+              />
               <div class="mobile__btn-counter">
                 {{ cartCounter }}
               </div>
@@ -69,7 +81,9 @@
               class="btn mobile__burger"
               id="burger"
               @click="toggleMobile"
-              :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
+              :aria-label="
+                mobileOpen ? 'Close menu' : 'Open menu'
+              "
             >
               <base-icon v-show="!mobileOpen" name="menu" />
               <base-icon v-show="mobileOpen" name="x" />
@@ -79,7 +93,10 @@
       </div>
 
       <div class="mobile__menu">
-        <base-input-text :icon="{ name: 'search' }" placeholder="Search" />
+        <base-input-text
+          :icon="{ name: 'search' }"
+          placeholder="Search"
+        />
 
         <div class="mobile__menu-btn-container">
           <router-link
@@ -87,7 +104,10 @@
             to="/about"
             @click="toggleMobile"
           >
-            <base-icon class="mobile__menu-btn-icon" name="info" />
+            <base-icon
+              class="mobile__menu-btn-icon"
+              name="info"
+            />
             About
           </router-link>
           <router-link
@@ -95,7 +115,10 @@
             to="/store"
             @click="toggleMobile"
           >
-            <base-icon class="mobile__menu-btn-icon" name="map" />
+            <base-icon
+              class="mobile__menu-btn-icon"
+              name="map"
+            />
             Store
           </router-link>
         </div>
@@ -122,7 +145,7 @@ export default defineComponent({
     ShoppingCartPopover,
     ShoppingCartModal,
   },
-  data () {
+  data() {
     return {
       mobileOpen: false,
       shoppingCartPopoverOpen: false,
@@ -132,26 +155,28 @@ export default defineComponent({
   computed: {
     ...mapState(['shoppingCart']),
 
-    cartCounter (): number {
+    cartCounter(): number {
       return this.shoppingCart.length
     },
   },
   methods: {
-    toggleMobile () {
+    toggleMobile() {
       this.mobileOpen = !this.mobileOpen
     },
-    toggleShoppingCartPopover () {
+    toggleShoppingCartPopover() {
       if (this.cartCounter) {
-        this.shoppingCartPopoverOpen = !this.shoppingCartPopoverOpen
+        this.shoppingCartPopoverOpen =
+          !this.shoppingCartPopoverOpen
       }
     },
-    toggleShoppingCartModal () {
+    toggleShoppingCartModal() {
       if (this.cartCounter) {
-        this.shoppingCartModalOpen = !this.shoppingCartModalOpen
+        this.shoppingCartModalOpen =
+          !this.shoppingCartModalOpen
       }
     },
   },
-  mounted () {
+  mounted() {
     this.$router.beforeEach(() => {
       this.shoppingCartPopoverOpen = false
       this.shoppingCartModalOpen = false

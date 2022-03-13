@@ -14,22 +14,27 @@
   <div class="carousel-nav">
     <button
       class="carousel-nav__btn"
-      :class="{ 'carousel-nav__btn--active': activeIndex === 0 }"
+      :class="{
+        'carousel-nav__btn--active': activeIndex === 0,
+      }"
       @click="goTo(0)"
     ></button>
     <button
       class="carousel-nav__btn"
-      :class="{ 'carousel-nav__btn--active': activeIndex === 1 }"
+      :class="{
+        'carousel-nav__btn--active': activeIndex === 1,
+      }"
       @click="goTo(1)"
     ></button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import NewsCouponCard from '@/components/NewsCouponCard.vue'
 import NewsStandardCard from '@/components/NewsStandardCard.vue'
-import { NewsCardsObject } from '@/types'
+import type { PropType } from 'vue'
+import type { NewsCardsObject } from '@/types'
 
 export default defineComponent({
   name: 'TheNewsCarousel',
@@ -43,7 +48,7 @@ export default defineComponent({
       required: true,
     },
   },
-  data () {
+  data() {
     return {
       standardCard: this.news.standard,
       couponCard: this.news.coupon,
@@ -51,28 +56,34 @@ export default defineComponent({
     }
   },
   computed: {
-    innerStyles (): any {
+    innerStyles(): any {
       return {
-        transform: `translateX(-${this.activeIndex * 100}%)`,
+        transform: `translateX(-${
+          this.activeIndex * 100
+        }%)`,
       }
     },
   },
   methods: {
-    onSwipe (direction: string) {
+    onSwipe(direction: string) {
       direction === 'left' && this.next()
       direction === 'right' && this.prev()
     },
-    goTo (index: number) {
+    goTo(index: number) {
       this.activeIndex = index
     },
-    prev () {
+    prev() {
       if (this.activeIndex !== 0) {
-        this.activeIndex = Math.abs((this.activeIndex - 1) % 2)
+        this.activeIndex = Math.abs(
+          (this.activeIndex - 1) % 2,
+        )
       }
     },
-    next () {
+    next() {
       if (this.activeIndex !== 1) {
-        this.activeIndex = Math.abs((this.activeIndex + 1) % 2)
+        this.activeIndex = Math.abs(
+          (this.activeIndex + 1) % 2,
+        )
       }
     },
   },

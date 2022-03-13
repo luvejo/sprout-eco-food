@@ -37,16 +37,22 @@
 
       <article class="all-recipes-card">
         <p class="all-recipes-card__title">
-          <span class="all-recipes-card__counter">200+</span>
+          <span class="all-recipes-card__counter"
+            >200+</span
+          >
           Healthy recipes
         </p>
-        <router-link class="btn all-recipes-card__btn" to="/recipes"
+        <router-link
+          class="btn all-recipes-card__btn"
+          to="/recipes"
           >View all</router-link
         >
       </article>
 
       <div class="subscribe-card">
-        <p class="subscribe-card__title">Don't miss the new posts</p>
+        <p class="subscribe-card__title">
+          Don't miss the new posts
+        </p>
         <base-input-text
           class="subscribe-card__input"
           placeholder="Your email"
@@ -60,9 +66,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import RecipeCategoryCard from '@/components/RecipeCategoryCard.vue'
-import { RecipeCard } from '@/types'
+import type { PropType } from 'vue'
+import type { RecipeCard } from '@/types'
 
 export default defineComponent({
   name: 'TheSectionRecipes',

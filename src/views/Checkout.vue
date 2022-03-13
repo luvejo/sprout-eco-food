@@ -1,29 +1,43 @@
 <template>
   <div class="content-max-width">
     <form class="container" @submit.prevent="">
-      <p class="route-path">
-        Homepage / Checkout
-      </p>
-      <h2 class="page-title">
-        Checkout
-      </h2>
+      <p class="route-path">Homepage / Checkout</p>
+      <h2 class="page-title">Checkout</h2>
 
       <div class="buyer-data">
         <fieldset class="buyer-data__fieldset">
-          <legend class="buyer-data__legend">Personal information:</legend>
-          <base-input-text class="buyer-data__input" label="First name" />
-          <base-input-text class="buyer-data__input" label="Last name" />
-          <base-input-text class="buyer-data__input" label="Phone" />
-          <base-input-text class="buyer-data__input" label="Email" />
+          <legend class="buyer-data__legend">
+            Personal information:
+          </legend>
+          <base-input-text
+            class="buyer-data__input"
+            label="First name"
+          />
+          <base-input-text
+            class="buyer-data__input"
+            label="Last name"
+          />
+          <base-input-text
+            class="buyer-data__input"
+            label="Phone"
+          />
+          <base-input-text
+            class="buyer-data__input"
+            label="Email"
+          />
         </fieldset>
 
         <fieldset class="buyer-data__fieldset">
-          <legend class="buyer-data__legend">Delivery details:</legend>
+          <legend class="buyer-data__legend">
+            Delivery details:
+          </legend>
           <base-select
             class="buyer-data__input"
             label="Country / Region"
             name="country"
-            :options="[{ id: 0, value: 'United Kingdom (UK)' }]"
+            :options="[
+              { id: 0, value: 'United Kingdom (UK)' },
+            ]"
           />
           <base-select
             class="buyer-data__input"
@@ -31,8 +45,14 @@
             name="city"
             :options="[{ id: 0, value: 'London' }]"
           />
-          <base-input-text class="buyer-data__input" label="Street" />
-          <base-input-text class="buyer-data__input" label="Postcode" />
+          <base-input-text
+            class="buyer-data__input"
+            label="Street"
+          />
+          <base-input-text
+            class="buyer-data__input"
+            label="Postcode"
+          />
           <base-select
             class="buyer-data__input"
             label="Packaging type"
@@ -48,19 +68,33 @@
         </fieldset>
 
         <fieldset class="buyer-data__fieldset">
-          <legend class="buyer-data__legend">Payment:</legend>
+          <legend class="buyer-data__legend">
+            Payment:
+          </legend>
 
           <div class="payment-method">
-            <base-radio name="payment-method" label="Apple Pay" />
+            <base-radio
+              name="payment-method"
+              label="Apple Pay"
+            />
             <div class="payment-method__logo">
-              <img src="/img/apple-pay.png" alt=" Apple Pay logo" />
+              <img
+                src="/img/apple-pay.png"
+                alt=" Apple Pay logo"
+              />
             </div>
           </div>
 
           <div class="payment-method">
-            <base-radio name="payment-method" label="PayPal" />
+            <base-radio
+              name="payment-method"
+              label="PayPal"
+            />
             <div class="payment-method__logo">
-              <img src="/img/paypal.png" alt=" PayPal logo" />
+              <img
+                src="/img/paypal.png"
+                alt=" PayPal logo"
+              />
             </div>
           </div>
 
@@ -111,7 +145,9 @@
             <p>Total:</p>
             <p>${{ formatPrice(shoppingCartTotal) }}</p>
           </div>
-          <button class="btn btn--green btn--full">Purchase</button>
+          <button class="btn btn--green btn--full">
+            Purchase
+          </button>
         </div>
 
         <div class="order__products">
@@ -124,7 +160,7 @@
       </div>
     </form>
   </div>
-  <the-footer v-if="!loading" />
+  <the-footer />
 </template>
 
 <script lang="ts">
@@ -141,10 +177,13 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['shoppingCart', 'deliveryPrice']),
-    ...mapGetters(['shoppingCartSubTotal', 'shoppingCartTotal']),
+    ...mapGetters([
+      'shoppingCartSubTotal',
+      'shoppingCartTotal',
+    ]),
   },
   methods: {
-    formatPrice (price: number): string {
+    formatPrice(price: number): string {
       return price.toFixed(2)
     },
   },

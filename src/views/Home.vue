@@ -21,9 +21,15 @@
             />
             Discounted goods
           </h2>
-          <router-link to="/catalog/discounted" class="section__link">
+          <router-link
+            to="/catalog/discounted"
+            class="section__link"
+          >
             View all
-            <base-icon name="chevron-right" class="section__link-icon" />
+            <base-icon
+              name="chevron-right"
+              class="section__link-icon"
+            />
           </router-link>
         </div>
 
@@ -31,7 +37,10 @@
       </section>
 
       <!-- Section: Recipes -->
-      <the-section-recipes v-if="recipes" :recipes="recipes" />
+      <the-section-recipes
+        v-if="recipes"
+        :recipes="recipes"
+      />
 
       <!-- Section:  New Additions -->
       <section class="section" v-if="newAdditions">
@@ -49,7 +58,10 @@
             />
             New additions
           </h2>
-          <router-link to="/new-additions" class="section__link">
+          <router-link
+            to="/new-additions"
+            class="section__link"
+          >
             View all
             <base-icon name="chevron-right" />
           </router-link>
@@ -86,7 +98,7 @@ export default defineComponent({
     TheSectionLogistics,
     TheFooter,
   },
-  data () {
+  data() {
     return {
       discountedGoods: null,
       newAdditions: null,
@@ -95,7 +107,7 @@ export default defineComponent({
       loading: true,
     }
   },
-  created () {
+  created() {
     Promise.all([
       api.news.getLatest().then((data: any) => {
         this.news = data

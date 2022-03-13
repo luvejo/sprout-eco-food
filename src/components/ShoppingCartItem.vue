@@ -39,16 +39,23 @@
             />
           </button>
         </div>
-        <div class="cart-item__price">${{ formatPrice(totalPrice) }}</div>
+        <div class="cart-item__price">
+          ${{ formatPrice(totalPrice) }}
+        </div>
       </div>
     </div>
   </article>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
-import { getSalePrice, getRegularPrice, getCurrentPrice } from '@/utils'
-import { ProductPrice } from '@/types'
+import { defineComponent } from 'vue'
+import {
+  getSalePrice,
+  getRegularPrice,
+  getCurrentPrice,
+} from '@/utils'
+import type { PropType } from 'vue'
+import type { ProductPrice } from '@/types'
 
 export default defineComponent({
   name: 'ShoppingCartItem',
@@ -83,16 +90,16 @@ export default defineComponent({
     },
   },
   computed: {
-    salePrice (): number | undefined {
+    salePrice(): number | undefined {
       return getSalePrice(this.price)
     },
-    regularPrice (): number | undefined {
+    regularPrice(): number | undefined {
       return getRegularPrice(this.price)
     },
-    currentPrice (): number | undefined {
+    currentPrice(): number | undefined {
       return getCurrentPrice(this.price)
     },
-    totalPrice (): number | undefined {
+    totalPrice(): number | undefined {
       if (this.currentPrice) {
         return this.currentPrice * this.quantity
       }
@@ -100,17 +107,23 @@ export default defineComponent({
     },
   },
   methods: {
-    formatPrice (price: number): string {
-      return price.toFixed(2)
+    formatPrice(price: number | undefined): string {
+      return price ? price.toFixed(2) : '0.00'
     },
-    removeProduct () {
+    removeProduct() {
       this.$store.dispatch('removeProductFromCart', this.id)
     },
-    incrementQuantity () {
-      this.$store.dispatch('incrementProductQuantity', this.id)
+    incrementQuantity() {
+      this.$store.dispatch(
+        'incrementProductQuantity',
+        this.id,
+      )
     },
-    decrementQuantity () {
-      this.$store.dispatch('decrementProductQuantity', this.id)
+    decrementQuantity() {
+      this.$store.dispatch(
+        'decrementProductQuantity',
+        this.id,
+      )
     },
   },
 })

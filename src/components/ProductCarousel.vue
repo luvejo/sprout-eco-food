@@ -1,7 +1,11 @@
 <template>
   <div class="carousel-container">
     <div class="carousel" v-swipe="onSwipe">
-      <div class="carousel__inner" :style="innerStyles" ref="inner">
+      <div
+        class="carousel__inner"
+        :style="innerStyles"
+        ref="inner"
+      >
         <product-card
           v-for="product in productList"
           :key="product.id"
@@ -35,7 +39,7 @@ export default defineComponent({
 
   name: 'ProductCarousel',
 
-  data () {
+  data() {
     return {
       productList: this.products,
       innerStyles: {},
@@ -52,35 +56,45 @@ export default defineComponent({
   },
 
   computed: {
-    inner (): InstanceType<typeof HTMLDivElement> {
-      return this.$refs.inner as InstanceType<typeof HTMLDivElement>
+    inner(): InstanceType<typeof HTMLDivElement> {
+      return this.$refs.inner as InstanceType<
+        typeof HTMLDivElement
+      >
     },
   },
 
-  created () {
-    window.addEventListener('resize', this.setNavigationStep)
+  created() {
+    window.addEventListener(
+      'resize',
+      this.setNavigationStep,
+    )
   },
 
-  mounted () {
+  mounted() {
     this.setNavigationStep()
     this.resetTranslate()
   },
 
-  unmounted () {
-    window.removeEventListener('resize', this.setNavigationStep)
+  unmounted() {
+    window.removeEventListener(
+      'resize',
+      this.setNavigationStep,
+    )
   },
 
   methods: {
-    setNavigationStep () {
-      this.navigationStep = `${this.inner.scrollWidth / this.products.length}px`
+    setNavigationStep() {
+      this.navigationStep = `${
+        this.inner.scrollWidth / this.products.length
+      }px`
     },
 
-    onSwipe (direction: string) {
+    onSwipe(direction: string) {
       direction === 'left' && this.next()
       direction === 'right' && this.prev()
     },
 
-    next () {
+    next() {
       if (this.transitioning) return
       this.transitioning = true
 
@@ -94,7 +108,7 @@ export default defineComponent({
       })
     },
 
-    prev () {
+    prev() {
       if (this.transitioning) return
       this.transitioning = true
       this.moveRight()
@@ -107,29 +121,32 @@ export default defineComponent({
       })
     },
 
-    afterTransition (callback: () => void) {
+    afterTransition(callback: () => void) {
       const listener = () => {
         callback()
-        this.inner.removeEventListener('transitionend', listener)
+        this.inner.removeEventListener(
+          'transitionend',
+          listener,
+        )
       }
       this.inner.addEventListener('transitionend', listener)
     },
 
-    resetTranslate () {
+    resetTranslate() {
       this.innerStyles = {
         transition: 'none',
         transform: `translateX(-${this.navigationStep})`,
       }
     },
 
-    moveLeft () {
+    moveLeft() {
       this.innerStyles = {
         transform: `translateX(-${this.navigationStep})
                     translateX(-${this.navigationStep})`,
       }
     },
 
-    moveRight () {
+    moveRight() {
       this.innerStyles = {
         transform: `translateX(${this.navigationStep})
                     translateX(-${this.navigationStep})`,
@@ -138,7 +155,7 @@ export default defineComponent({
   },
 
   watch: {
-    products () {
+    products() {
       this.productList = this.products
     },
   },

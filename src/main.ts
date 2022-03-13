@@ -7,23 +7,22 @@ import VSwipe from './directives/v-swipe'
 const app = createApp(App)
 
 // Automatically import base components.
-// prettier-ignore
-const requireComponent = require.context('./components', true, /Base[A-Z]\w+\.(vue|js)$/)
+const components = import.meta.globEager(
+  './components/*.vue',
+)
 
-// prettier-ignore
-requireComponent.keys().forEach(function (fileName) {
-  let baseComponentConfig = requireComponent(fileName)
-  baseComponentConfig = baseComponentConfig.default || baseComponentConfig
-  const baseComponentName = baseComponentConfig.name || (
-    fileName
-      .replace(/^.+\//, '')
+Object.entries(components).forEach(
+  ([path, definition]: any) => {
+    // Get name of component, based on filename
+    const componentName = path
+      .split('/')
+      .pop()
       .replace(/\.\w+$/, '')
-  )
-  app.component(baseComponentName, baseComponentConfig)
-})
 
-app
-  .use(store)
-  .use(router)
-  .use(VSwipe)
-  .mount('#app')
+    if (componentName.startsWith('Base')) {
+      app.component(componentName, definition.default)
+    }
+  },
+)
+
+app.use(store).use(router).use(VSwipe).mount('#app')

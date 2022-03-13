@@ -16,9 +16,13 @@
       </h2>
     </div>
 
-    <div class="section__content section-logistics__content">
+    <div
+      class="section__content section-logistics__content"
+    >
       <div class="section-logistics__step">
-        <harvest-icon class="section-logistics__pictogram" />
+        <harvest-icon
+          class="section-logistics__pictogram"
+        />
         <div class="section-logistics__text">
           <p class="section-logistics__title">Gathering</p>
           <p class="section-logistics__description">
@@ -32,7 +36,9 @@
         <arrow-icon class="arrow arrow--even" />
         <truck-icon class="section-logistics__pictogram" />
         <div class="section-logistics__text">
-          <p class="section-logistics__title">Transportation</p>
+          <p class="section-logistics__title">
+            Transportation
+          </p>
           <p class="section-logistics__description">
             Select the best and transport it to our bases.
           </p>
@@ -44,18 +50,22 @@
         <div class="section-logistics__text">
           <p class="section-logistics__title">Packaging</p>
           <p class="section-logistics__description">
-            Carefully pack your order in ecological packaging
+            Carefully pack your order in ecological
+            packaging
           </p>
         </div>
         <arrow-icon class="arrow" />
       </div>
 
       <div class="section-logistics__step">
-        <destination-icon class="section-logistics__pictogram" />
+        <destination-icon
+          class="section-logistics__pictogram"
+        />
         <div class="section-logistics__text">
           <p class="section-logistics__title">Delivery</p>
           <p class="section-logistics__description">
-            We can deliver any product within five business days.
+            We can deliver any product within five business
+            days.
           </p>
         </div>
       </div>

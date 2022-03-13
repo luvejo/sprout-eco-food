@@ -1,19 +1,14 @@
-<template>
-  <the-navbar />
-  <router-view />
-</template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
 import TheNavbar from '@/components/TheNavbar.vue'
-
-export default defineComponent({
-  name: 'App',
-  components: { TheNavbar },
-})
 </script>
 
+<template>
+  <TheNavbar />
+  <RouterView />
+</template>
+
 <style lang="scss">
-@import '~normalize.css';
+@import 'normalize.css';
 @import '@/assets/css/main.scss';
 </style>
