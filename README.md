@@ -41,7 +41,7 @@ npm run test:e2e
 
 ## 🌿 Demo
 
-At [sprout.luvejo.me](https://sprout.luvejo.me).
+At [sprout.fictolab.co](https://sprout.fictolab.co).
 
 ## 🌿 Screenshot
 
