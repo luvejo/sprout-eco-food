@@ -1,81 +1,83 @@
 <template>
-  <the-loading-screen v-if="loading" />
-  <div v-else class="content-max-width">
-    <div class="home">
-      <!-- News Carousel -->
-      <the-news-carousel v-if="news" :news="news" />
+  <div>
+    <the-loading-screen v-if="loading" />
+    <div v-else class="content-max-width">
+      <div class="home">
+        <!-- News Carousel -->
+        <the-news-carousel v-if="news" :news="news" />
 
-      <!-- Section: Discounts -->
-      <section class="section" v-if="discountedGoods">
-        <div class="section__title-container">
-          <h2 class="section__title">
-            <base-icon
-              class="section__title-icon section__title-icon--desktop"
-              name="tag"
-              :size="40"
-            />
-            <base-icon
-              class="section__title-icon section__title-icon--mobile"
-              name="tag"
-              :size="28"
-            />
-            Discounted goods
-          </h2>
-          <router-link
-            to="/catalog/discounted"
-            class="section__link"
-          >
-            View all
-            <base-icon
-              name="chevron-right"
-              class="section__link-icon"
-            />
-          </router-link>
-        </div>
+        <!-- Section: Discounts -->
+        <section class="section" v-if="discountedGoods">
+          <div class="section__title-container">
+            <h2 class="section__title">
+              <base-icon
+                class="section__title-icon section__title-icon--desktop"
+                name="tag"
+                :size="40"
+              />
+              <base-icon
+                class="section__title-icon section__title-icon--mobile"
+                name="tag"
+                :size="28"
+              />
+              Discounted goods
+            </h2>
+            <router-link
+              to="/catalog/discounted"
+              class="section__link"
+            >
+              View all
+              <base-icon
+                name="chevron-right"
+                class="section__link-icon"
+              />
+            </router-link>
+          </div>
 
-        <product-carousel :products="discountedGoods" />
-      </section>
+          <product-carousel :products="discountedGoods" />
+        </section>
 
-      <!-- Section: Recipes -->
-      <the-section-recipes
-        v-if="recipes"
-        :recipes="recipes"
-      />
+        <!-- Section: Recipes -->
+        <the-section-recipes
+          v-if="recipes"
+          :recipes="recipes"
+        />
 
-      <!-- Section:  New Additions -->
-      <section class="section" v-if="newAdditions">
-        <div class="section__title-container">
-          <h2 class="section__title">
-            <base-icon
-              class="section__title-icon section__title-icon--desktop"
-              name="package"
-              :size="40"
-            />
-            <base-icon
-              class="section__title-icon section__title-icon--mobile"
-              name="package"
-              :size="28"
-            />
-            New additions
-          </h2>
-          <router-link
-            to="/new-additions"
-            class="section__link"
-          >
-            View all
-            <base-icon name="chevron-right" />
-          </router-link>
-        </div>
+        <!-- Section:  New Additions -->
+        <section class="section" v-if="newAdditions">
+          <div class="section__title-container">
+            <h2 class="section__title">
+              <base-icon
+                class="section__title-icon section__title-icon--desktop"
+                name="package"
+                :size="40"
+              />
+              <base-icon
+                class="section__title-icon section__title-icon--mobile"
+                name="package"
+                :size="28"
+              />
+              New additions
+            </h2>
+            <router-link
+              to="/new-additions"
+              class="section__link"
+            >
+              View all
+              <base-icon name="chevron-right" />
+            </router-link>
+          </div>
 
-        <product-carousel :products="newAdditions" />
-      </section>
+          <product-carousel :products="newAdditions" />
+        </section>
 
-      <!-- Section:  Logistics -->
-      <the-section-logistics />
+        <!-- Section:  Logistics -->
+        <the-section-logistics />
+      </div>
     </div>
-  </div>
 
-  <the-footer v-if="!loading" />
+    <the-footer v-if="!loading" />
+  </div>
 </template>
 
 <script lang="ts">

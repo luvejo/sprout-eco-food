@@ -20,13 +20,14 @@ export default defineComponent({
 @use '@/assets/css/vars' as vars;
 
 .loading-spinner-container {
-  width: 100%;
-  margin-top: 80px;
+  flex-grow: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.loading-spinner {
-  margin: 0 auto;
+.spinner-container {
+  position: relative;
+  top: -40px;
 }
 </style>
