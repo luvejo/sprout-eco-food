@@ -31,8 +31,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import ProductCard from './ProductCard.vue'
+import type { ShoppingCartItem } from '@/types'
 
 export default defineComponent({
   components: { ProductCard },
@@ -50,7 +51,7 @@ export default defineComponent({
 
   props: {
     products: {
-      type: Array,
+      type: Array as PropType<ShoppingCartItem[]>,
       required: true,
     },
   },

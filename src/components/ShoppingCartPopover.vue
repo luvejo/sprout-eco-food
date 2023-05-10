@@ -5,8 +5,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import ShoppingCart from '@/components/ShoppingCart.vue'
+import type { ShoppingCartItem as CartItem } from '@/types'
 
 export default defineComponent({
   name: 'ShoppingCartPopover',
@@ -15,7 +16,7 @@ export default defineComponent({
   },
   props: {
     items: {
-      type: Array,
+      type: Array as PropType<CartItem[]>,
       required: true,
     },
   },
@@ -47,7 +48,8 @@ export default defineComponent({
     margin-left: -5px;
     border-width: 8px;
     border-style: solid;
-    border-color: transparent transparent vars.$white transparent;
+    border-color: transparent transparent vars.$white
+      transparent;
   }
 }
 </style>

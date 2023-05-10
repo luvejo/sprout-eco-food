@@ -9,8 +9,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import ShoppingCart from '@/components/ShoppingCart.vue'
+import type { ShoppingCartItem } from '@/types'
 
 export default defineComponent({
   name: 'ShoppingCartModal',
@@ -19,7 +20,7 @@ export default defineComponent({
   },
   props: {
     items: {
-      type: Array,
+      type: Array as PropType<ShoppingCartItem[]>,
       required: true,
     },
   },

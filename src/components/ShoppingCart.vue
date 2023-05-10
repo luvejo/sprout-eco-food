@@ -2,7 +2,11 @@
   <div class="cart">
     <p class="cart__title">My shopping cart:</p>
     <div class="cart__item-list">
-      <shopping-cart-item v-for="item in items" v-bind="item" :key="item.id" />
+      <shopping-cart-item
+        v-for="item in items"
+        v-bind="item"
+        :key="item.id"
+      />
     </div>
     <div class="cart__subtotal">
       <p>Subtotal:</p>
@@ -19,9 +23,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import ShoppingCartItem from '@/components/ShoppingCartItem.vue'
 import { mapGetters } from 'vuex'
+import type { ShoppingCartItem as CartItem } from '@/types'
 
 export default defineComponent({
   name: 'ShoppingCartPopover',
@@ -30,7 +35,7 @@ export default defineComponent({
   },
   props: {
     items: {
-      type: Array,
+      type: Array as PropType<CartItem[]>,
       required: true,
     },
   },
@@ -38,7 +43,7 @@ export default defineComponent({
     ...mapGetters(['shoppingCartSubTotal']),
   },
   methods: {
-    formatPrice (price: number): string {
+    formatPrice(price: number): string {
       return price.toFixed(2)
     },
   },
