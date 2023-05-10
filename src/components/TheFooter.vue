@@ -86,12 +86,12 @@ export default defineComponent({
 
 .footer-wrapper {
   background-color: vars.$dark-cream;
+  margin-top: 56px;
 }
 
 .footer {
   padding: 56px 44px;
   display: grid;
-  margin-top: 56px;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, auto);
 
