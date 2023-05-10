@@ -1,4 +1,7 @@
-# Sprout Eco Market - Frontend 🥑
+<img width="1117" alt="Frame 129 (1)" src="https://github.com/luvejo/sprout/assets/16514302/4003abcb-cff6-48bb-a120-14918addb8a8">
+
+
+# 🌿 Intro
 
 This is the home page of a fictional eco-products ecommerce. Original concept and UI design by [Julia Klochok](https://www.behance.net/klochocheek).
 
