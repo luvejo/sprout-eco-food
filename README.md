@@ -1,13 +1,13 @@
 <img width="1117" alt="Frame 129 (1)" src="https://github.com/luvejo/sprout/assets/16514302/4003abcb-cff6-48bb-a120-14918addb8a8">
 
 
-## 🌿 Intro
+## 🥑 Intro
 
 This is the home page of a fictional eco-products ecommerce. Original concept and UI design by [Julia Klochok](https://www.behance.net/klochocheek).
 
 It was built using Vue 3, Vue Router, Vuex, TypeScript, Sass, Jest, Vue Test Utils and Cypress.
 
-## 🌿 Features
+## 🥑 Features
 
 - _CRUD_ shopping cart items.  
 - Home page.  
@@ -15,14 +15,14 @@ It was built using Vue 3, Vue Router, Vuex, TypeScript, Sass, Jest, Vue Test Uti
 - 404 page.  
 - Mobile first.  
 
-## 🌿 Installation
+## 🥑 Installation
 
 ```bash
 # Download the repo.
 git clone https://github.com/luvejo/sprout-frontend.git
 ```
 
-## 🌿 Build Setup
+## 🥑 Build Setup
 
 ```bash
 # Install dependencies.
@@ -32,7 +32,7 @@ $ npm install
 $ npm run serve
 ```
 
-## 🌿 Testing
+## 🥑 Testing
 
 ```bash
 # Run unit tests.
@@ -42,14 +42,14 @@ npm run test:unit
 npm run test:e2e
 ```
 
-## 🌿 Demo
+## 🥑 Demo
 
 At [sprout.fictolab.co](https://sprout.fictolab.co).
 
-## 🌿 Screenshot
+## 🥑 Screenshot
 
 ![Screenshot 2022-01-26 at 13-25-38 sprout-ecommerce](https://user-images.githubusercontent.com/16514302/153708263-e64bd3e6-f713-4923-823f-8f4ba6a32edf.png)
 
-## 🌿 License
+## 🥑 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
