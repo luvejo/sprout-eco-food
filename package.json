@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.2",
     "feather-icons": "^4.28.0",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.31",
