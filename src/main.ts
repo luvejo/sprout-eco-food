@@ -1,4 +1,3 @@
-import { inject } from '@vercel/analytics'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -27,6 +26,3 @@ Object.entries(components).forEach(
 )
 
 app.use(store).use(router).use(VSwipe).mount('#app')
-
-// Setup Vercel Analytics.
-inject()

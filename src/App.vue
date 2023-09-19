@@ -1,6 +1,11 @@
 <script setup lang="ts">
+import { inject } from '@vercel/analytics'
 import { RouterView } from 'vue-router'
 import TheNavbar from '@/components/TheNavbar.vue'
+import { onMounted } from 'vue'
+
+// Setup Vercel Analytics.
+onMounted(inject)
 </script>
 
 <template>
