@@ -44,7 +44,7 @@ npm run test:e2e
 
 ## 🥑 Demo
 
-At [sprout.fictolab.co](https://sprout.fictolab.co).
+At [sprout.fictolab.co](https://sprout-tan.vercel.app).
 
 ## 🥑 Screenshot
 

@@ -68,7 +68,7 @@
       <a href="https://www.behance.net/klochocheek" target="_blank"
         >Julia Klochok</a
       >. Developed by
-      <a href="https://fictolab.co" target="_blank">Luis Velásquez</a>.
+      <a href="https://fictolab.vercel.app" target="_blank">Luis Velásquez</a>.
     </p>
   </div>
 </template>
